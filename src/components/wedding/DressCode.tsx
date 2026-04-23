@@ -14,9 +14,7 @@ export function DressCode() {
         <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">
           Código de Vestimenta
         </p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">
-          Dress code
-        </h2>
+        <h2 className="mt-3 font-serif text-4xl font-light italic">Dress code</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
       </motion.div>
 
@@ -28,29 +26,21 @@ export function DressCode() {
         className="glass mt-10 w-full rounded-sm p-10 text-center"
       >
         <Shirt className="mx-auto h-10 w-10 text-sage" strokeWidth={1} />
-        <p className="mt-6 font-serif text-4xl font-light italic text-sage-deep">
-          Formal
-        </p>
+        <p className="mt-6 font-serif text-4xl font-light italic text-sage-deep">Formal</p>
         <p className="mt-3 text-xs leading-relaxed tracking-wider text-muted-foreground">
           Etiqueta elegante
         </p>
 
         <div className="mt-8 grid grid-cols-2 gap-3 text-left">
           <div className="rounded-sm border border-sage/30 p-4">
-            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">
-              Ellas
-            </p>
+            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">Ellas</p>
             <p className="mt-2 font-serif text-sm italic text-foreground">
               Vestido largo en tonos pasteles
             </p>
           </div>
           <div className="rounded-sm border border-sage/30 p-4">
-            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">
-              Ellos
-            </p>
-            <p className="mt-2 font-serif text-sm italic text-foreground">
-              Traje oscuro o smoking
-            </p>
+            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">Ellos</p>
+            <p className="mt-2 font-serif text-sm italic text-foreground">Traje oscuro o smoking</p>
           </div>
         </div>
 

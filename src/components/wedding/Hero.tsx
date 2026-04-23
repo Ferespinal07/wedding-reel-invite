@@ -49,9 +49,7 @@ export function Hero() {
           className="mt-10 flex items-center gap-4"
         >
           <span className="h-px w-10 bg-sage/60" />
-          <p className="text-xs tracking-luxury text-foreground/80">
-            20 . 09 . 2026
-          </p>
+          <p className="text-xs tracking-luxury text-foreground/80">20 . 09 . 2026</p>
           <span className="h-px w-10 bg-sage/60" />
         </motion.div>
 

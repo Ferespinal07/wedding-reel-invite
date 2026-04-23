@@ -34,12 +34,8 @@ export function Tips() {
         transition={{ duration: 0.8 }}
         className="text-center"
       >
-        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">
-          Tips & Notas
-        </p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">
-          Para tener en cuenta
-        </h2>
+        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">Tips & Notas</p>
+        <h2 className="mt-3 font-serif text-4xl font-light italic">Para tener en cuenta</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
       </motion.div>
 
@@ -57,12 +53,8 @@ export function Tips() {
               <t.icon className="h-4 w-4 text-sage-deep" strokeWidth={1.4} />
             </div>
             <div>
-              <h3 className="font-serif text-lg font-light text-foreground">
-                {t.title}
-              </h3>
-              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                {t.text}
-              </p>
+              <h3 className="font-serif text-lg font-light text-foreground">{t.title}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.text}</p>
             </div>
           </motion.div>
         ))}

@@ -27,12 +27,8 @@ export function PartyMusic() {
         className="text-center"
       >
         <Music className="mx-auto h-6 w-6 text-sage" strokeWidth={1.2} />
-        <p className="mt-3 text-[0.7rem] uppercase tracking-luxury text-sage-deep">
-          Playlist
-        </p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">
-          Música de la fiesta
-        </h2>
+        <p className="mt-3 text-[0.7rem] uppercase tracking-luxury text-sage-deep">Playlist</p>
+        <h2 className="mt-3 font-serif text-4xl font-light italic">Música de la fiesta</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
         <p className="mx-auto mt-4 max-w-xs text-xs leading-relaxed text-muted-foreground">
           Sugiere la canción que no puede faltar en nuestra celebración.

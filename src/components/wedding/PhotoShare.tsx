@@ -20,13 +20,11 @@ export function PhotoShare() {
         <p className="mt-3 text-[0.7rem] uppercase tracking-luxury text-sage-deep">
           Comparte tus fotos
         </p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">
-          Galería compartida
-        </h2>
+        <h2 className="mt-3 font-serif text-4xl font-light italic">Galería compartida</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
         <p className="mx-auto mt-4 max-w-xs text-xs leading-relaxed text-muted-foreground">
-          Escanea el código y sube las fotos que tomes durante el día. Queremos
-          revivirlo a través de tus ojos.
+          Escanea el código y sube las fotos que tomes durante el día. Queremos revivirlo a través
+          de tus ojos.
         </p>
       </motion.div>
 
@@ -38,15 +36,9 @@ export function PhotoShare() {
         className="glass mt-8 flex flex-col items-center rounded-sm p-8"
       >
         <div className="rounded-sm bg-cream p-3">
-          <img
-            src={QR_SRC}
-            alt="QR para subir fotos a Google Drive"
-            className="h-44 w-44"
-          />
+          <img src={QR_SRC} alt="QR para subir fotos a Google Drive" className="h-44 w-44" />
         </div>
-        <p className="mt-5 font-serif text-sm italic text-foreground/80">
-          o entra desde tu móvil
-        </p>
+        <p className="mt-5 font-serif text-sm italic text-foreground/80">o entra desde tu móvil</p>
         <a
           href={DRIVE_URL}
           target="_blank"

@@ -19,13 +19,10 @@ export function BibleVerse() {
         transition={{ duration: 1.2 }}
         className="relative z-10 max-w-md text-center text-white"
       >
-        <p className="text-[0.7rem] uppercase tracking-luxury text-blush">
-          Palabra de Dios
-        </p>
+        <p className="text-[0.7rem] uppercase tracking-luxury text-blush">Palabra de Dios</p>
         <div className="mx-auto my-6 h-px w-14 bg-white/60" />
         <p className="font-serif text-3xl font-light leading-snug italic sm:text-4xl">
-          "El amor es paciente, es bondadoso. El amor no es envidioso ni
-          jactancioso ni orgulloso."
+          "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso."
         </p>
         <p className="mt-8 text-[0.7rem] uppercase tracking-luxury text-white/80">
           1 Corintios 13:4

@@ -19,12 +19,8 @@ export function OurStory() {
         transition={{ duration: 0.8 }}
         className="text-center"
       >
-        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">
-          Nosotros
-        </p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">
-          Nuestra historia
-        </h2>
+        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">Nosotros</p>
+        <h2 className="mt-3 font-serif text-4xl font-light italic">Nuestra historia</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
         <p className="mx-auto mt-5 max-w-xs text-xs leading-relaxed text-muted-foreground">
           Cada momento nos trajo a este día. Gracias por ser parte de él.
