@@ -1,26 +1,39 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/wedding/Hero";
+import { Countdown } from "@/components/wedding/Countdown";
+import { EventDetails } from "@/components/wedding/EventDetails";
+import { RSVP } from "@/components/wedding/RSVP";
+import { GiftsDressCode } from "@/components/wedding/GiftsDressCode";
+import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Junior & Omaisy · Nuestra Boda · 20.09.2026" },
+      {
+        name: "description",
+        content:
+          "Te invitamos a celebrar nuestra boda. 20 de Septiembre de 2026. Confirma tu asistencia.",
+      },
+      { property: "og:title", content: "Junior & Omaisy · 20.09.2026" },
+      {
+        property: "og:description",
+        content: "Acompáñanos en el día más importante de nuestras vidas.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="scroll-snap-y dark bg-background">
+      <Hero />
+      <Countdown />
+      <EventDetails />
+      <RSVP />
+      <GiftsDressCode />
+      <Toaster theme="dark" position="top-center" />
+    </main>
+  );
 }
