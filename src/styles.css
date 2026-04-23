@@ -28,8 +28,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-gold: var(--gold);
-  --color-champagne: var(--champagne);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-rose: var(--rose);
+  --color-blush: var(--blush);
+  --color-cream: var(--cream);
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
 }
@@ -37,45 +40,43 @@
 :root {
   --radius: 0.25rem;
 
-  /* Dark premium palette */
-  --background: oklch(0.13 0.005 240);
-  --foreground: oklch(0.97 0.005 90);
+  /* Botanical palette — Sage / Dusty Rose / Warm Cream */
+  --background: oklch(0.97 0.008 90); /* warm cream */
+  --foreground: oklch(0.28 0.02 140); /* deep forest text */
 
-  --card: oklch(0.17 0.006 240);
-  --card-foreground: oklch(0.97 0.005 90);
+  --card: oklch(0.99 0.005 90);
+  --card-foreground: oklch(0.28 0.02 140);
 
-  --popover: oklch(0.17 0.006 240);
-  --popover-foreground: oklch(0.97 0.005 90);
+  --popover: oklch(0.99 0.005 90);
+  --popover-foreground: oklch(0.28 0.02 140);
 
-  --primary: oklch(0.85 0.09 85); /* Gold */
-  --primary-foreground: oklch(0.13 0.005 240);
+  --primary: oklch(0.62 0.07 130); /* sage green #8A9A5B */
+  --primary-foreground: oklch(0.98 0.005 90);
 
-  --secondary: oklch(0.22 0.006 240);
-  --secondary-foreground: oklch(0.97 0.005 90);
+  --secondary: oklch(0.84 0.06 40); /* dusty rose */
+  --secondary-foreground: oklch(0.28 0.02 140);
 
-  --muted: oklch(0.22 0.006 240);
-  --muted-foreground: oklch(0.7 0.01 90);
+  --muted: oklch(0.94 0.01 90);
+  --muted-foreground: oklch(0.48 0.02 140);
 
-  --accent: oklch(0.9 0.07 88); /* Champagne */
-  --accent-foreground: oklch(0.13 0.005 240);
+  --accent: oklch(0.9 0.04 25); /* blush */
+  --accent-foreground: oklch(0.28 0.02 140);
 
   --destructive: oklch(0.6 0.22 27);
-  --destructive-foreground: oklch(0.97 0 0);
+  --destructive-foreground: oklch(0.98 0 0);
 
-  --border: oklch(0.85 0.09 85 / 25%);
-  --input: oklch(0.85 0.09 85 / 30%);
-  --ring: oklch(0.85 0.09 85);
+  --border: oklch(0.62 0.07 130 / 25%);
+  --input: oklch(0.62 0.07 130 / 30%);
+  --ring: oklch(0.62 0.07 130);
 
-  --gold: oklch(0.82 0.11 84);
-  --champagne: oklch(0.9 0.05 88);
+  --sage: oklch(0.62 0.07 130);
+  --sage-deep: oklch(0.48 0.06 130);
+  --rose: oklch(0.84 0.06 40);
+  --blush: oklch(0.9 0.04 25);
+  --cream: oklch(0.97 0.008 90);
 
   --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", "Inter", system-ui, sans-serif;
-}
-
-.dark {
-  --background: oklch(0.13 0.005 240);
-  --foreground: oklch(0.97 0.005 90);
 }
 
 @layer base {
@@ -93,6 +94,10 @@
 
   body {
     overflow-x: hidden;
+    background-image:
+      radial-gradient(at 0% 0%, oklch(0.62 0.07 130 / 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, oklch(0.84 0.06 40 / 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
   }
 }
 
@@ -124,40 +129,48 @@
     min-height: 100dvh;
   }
 
-  .text-gold {
-    color: var(--gold);
+  .text-sage { color: var(--sage); }
+  .text-sage-deep { color: var(--sage-deep); }
+  .text-rose { color: var(--rose); }
+  .bg-sage { background-color: var(--sage); }
+  .bg-rose { background-color: var(--rose); }
+  .bg-blush { background-color: var(--blush); }
+  .bg-cream { background-color: var(--cream); }
+  .border-sage { border-color: var(--sage); }
+  .border-rose { border-color: var(--rose); }
+
+  .botanical-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.97 0.008 90) 0%,
+      oklch(0.93 0.03 100) 45%,
+      oklch(0.88 0.04 50) 100%
+    );
   }
 
-  .bg-gold {
-    background-color: var(--gold);
-  }
-
-  .border-gold {
-    border-color: var(--gold);
-  }
-
-  .gradient-overlay {
+  .sage-overlay {
     background: linear-gradient(
       180deg,
-      oklch(0.08 0 0 / 0.5) 0%,
-      oklch(0.08 0 0 / 0.3) 40%,
-      oklch(0.08 0 0 / 0.85) 100%
+      oklch(0.4 0.05 130 / 0.25) 0%,
+      oklch(0.4 0.05 130 / 0.15) 50%,
+      oklch(0.3 0.04 130 / 0.55) 100%
     );
   }
 
   .glass {
-    background: oklch(0.2 0.005 240 / 0.45);
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
-    border: 1px solid oklch(0.85 0.09 85 / 0.18);
+    background: oklch(1 0 0 / 0.55);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid oklch(0.62 0.07 130 / 0.22);
+    box-shadow: 0 10px 40px -20px oklch(0.4 0.05 130 / 0.3);
   }
 
-  .gold-divider {
+  .sage-divider {
     height: 1px;
     background: linear-gradient(
       90deg,
       transparent 0%,
-      var(--gold) 50%,
+      var(--sage) 50%,
       transparent 100%
     );
   }

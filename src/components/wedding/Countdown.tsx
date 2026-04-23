@@ -13,10 +13,15 @@ function calc() {
   };
 }
 
+const ZERO = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
 export function Countdown() {
-  const [t, setT] = useState(calc());
+  const [t, setT] = useState(ZERO);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    setT(calc());
     const id = setInterval(() => setT(calc()), 1000);
     return () => clearInterval(id);
   }, []);
@@ -35,7 +40,7 @@ export function Countdown() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-gold text-[0.7rem] uppercase tracking-luxury"
+        className="text-[0.7rem] uppercase tracking-luxury text-sage-deep"
       >
         Cuenta Regresiva
       </motion.p>
@@ -52,7 +57,7 @@ export function Countdown() {
         nuestro gran día
       </motion.h2>
 
-      <div className="gold-divider my-10 w-32" />
+      <div className="sage-divider my-10 w-32" />
 
       <div className="grid w-full max-w-sm grid-cols-4 gap-2">
         {items.map((it, i) => (
@@ -65,8 +70,11 @@ export function Countdown() {
             className="flex flex-col items-center"
           >
             <div className="glass flex h-20 w-full items-center justify-center rounded-sm">
-              <span className="font-serif text-3xl font-light text-foreground tabular-nums">
-                {String(it.value).padStart(2, "0")}
+              <span
+                suppressHydrationWarning
+                className="font-serif text-3xl font-light text-foreground tabular-nums"
+              >
+                {mounted ? String(it.value).padStart(2, "0") : "00"}
               </span>
             </div>
             <span className="mt-3 text-[0.6rem] uppercase tracking-luxury text-muted-foreground">
