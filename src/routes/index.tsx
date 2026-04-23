@@ -1,9 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Welcome } from "@/components/wedding/Welcome";
 import { Hero } from "@/components/wedding/Hero";
 import { Countdown } from "@/components/wedding/Countdown";
 import { EventDetails } from "@/components/wedding/EventDetails";
+import { OurStory } from "@/components/wedding/OurStory";
+import { BibleVerse } from "@/components/wedding/BibleVerse";
+import { PartyMusic } from "@/components/wedding/PartyMusic";
+import { DressCode } from "@/components/wedding/DressCode";
+import { Tips } from "@/components/wedding/Tips";
+import { PhotoShare } from "@/components/wedding/PhotoShare";
+import { Gifts } from "@/components/wedding/Gifts";
 import { RSVP } from "@/components/wedding/RSVP";
-import { GiftsDressCode } from "@/components/wedding/GiftsDressCode";
 import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/")({
@@ -26,14 +34,23 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [entered, setEntered] = useState(false);
+
   return (
-    <main className="scroll-snap-y dark bg-background">
+    <main className="scroll-snap-y bg-background">
+      {!entered && <Welcome onEnter={() => setEntered(true)} />}
       <Hero />
       <Countdown />
       <EventDetails />
+      <OurStory />
+      <BibleVerse />
+      <PartyMusic />
+      <DressCode />
+      <Tips />
+      <PhotoShare />
+      <Gifts />
       <RSVP />
-      <GiftsDressCode />
-      <Toaster theme="dark" position="top-center" />
+      <Toaster position="top-center" />
     </main>
   );
 }

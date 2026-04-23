@@ -3,31 +3,30 @@ import { motion } from "framer-motion";
 export function Hero() {
   return (
     <section className="snap-section relative w-full overflow-hidden">
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        src="https://assets.mixkit.co/videos/preview/mixkit-wedding-couple-walking-in-the-forest-41484-large.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80&auto=format&fit=crop)",
+        }}
       />
-      <div className="absolute inset-0 gradient-overlay" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cream/40 via-cream/30 to-cream/85" />
 
       <div className="relative z-10 flex min-h-[100dvh] flex-col items-center justify-center px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-gold text-[0.7rem] uppercase tracking-luxury"
+          className="text-[0.7rem] uppercase tracking-luxury text-sage-deep"
         >
           Nuestra Boda
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
           transition={{ duration: 1.2, delay: 0.6 }}
-          className="my-6 h-px w-16 bg-gold"
+          className="my-6 h-px w-16 bg-sage"
         />
 
         <motion.h1
@@ -37,7 +36,8 @@ export function Hero() {
           className="font-serif text-6xl font-light leading-[0.95] text-foreground sm:text-7xl"
         >
           Junior
-          <span className="text-gold mx-3 italic">&</span>
+          <br />
+          <span className="font-serif italic text-sage">&</span>
           <br />
           Omaisy
         </motion.h1>
@@ -48,26 +48,40 @@ export function Hero() {
           transition={{ duration: 1, delay: 1.6 }}
           className="mt-10 flex items-center gap-4"
         >
-          <span className="h-px w-10 bg-gold/60" />
-          <p className="text-xs tracking-luxury text-foreground/90">
+          <span className="h-px w-10 bg-sage/60" />
+          <p className="text-xs tracking-luxury text-foreground/80">
             20 . 09 . 2026
           </p>
-          <span className="h-px w-10 bg-gold/60" />
+          <span className="h-px w-10 bg-sage/60" />
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2 }}
+          className="mt-8 max-w-xs font-serif text-sm italic leading-relaxed text-foreground/75"
+        >
+          "Lo que Dios ha unido,
+          <br /> que no lo separe el hombre."
+          <br />
+          <span className="mt-2 inline-block text-[0.65rem] not-italic uppercase tracking-luxury text-sage-deep">
+            Marcos 10:9
+          </span>
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2.2 }}
-          className="absolute bottom-10 flex flex-col items-center gap-2"
+          transition={{ duration: 1, delay: 2.4 }}
+          className="absolute bottom-8 flex flex-col items-center gap-2"
         >
-          <span className="text-[0.6rem] uppercase tracking-luxury text-foreground/70">
+          <span className="text-[0.6rem] uppercase tracking-luxury text-foreground/60">
             Desliza
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="h-8 w-px bg-gold/60"
+            className="h-8 w-px bg-sage/60"
           />
         </motion.div>
       </div>
