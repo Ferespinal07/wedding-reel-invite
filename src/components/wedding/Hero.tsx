@@ -6,11 +6,12 @@ export function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80&auto=format&fit=crop)",
+          backgroundImage: "url(/images/download.gif)",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-cream/40 via-cream/30 to-cream/85" />
+      <div className="absolute inset-0 bg-cream/30 backdrop-blur-[1px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cream/65 via-cream/35 to-cream/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-sage/20 via-transparent to-rose/20" />
 
       <div className="relative z-10 flex min-h-[100dvh] flex-col items-center justify-center px-6 text-center">
         <motion.p
