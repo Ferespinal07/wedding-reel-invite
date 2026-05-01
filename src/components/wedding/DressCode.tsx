@@ -23,7 +23,7 @@ export function DressCode() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="glass mt-10 w-full rounded-sm p-10 text-center"
+        className="glass mt-8 w-full max-w-md rounded-sm p-8 text-center"
       >
         <Shirt className="mx-auto h-10 w-10 text-sage" strokeWidth={1} />
         <p className="mt-6 font-serif text-4xl font-light italic text-sage-deep">Formal</p>
@@ -48,6 +48,22 @@ export function DressCode() {
           Reservamos el blanco para la novia
         </p>
       </motion.div>
+
+      <motion.figure
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.35 }}
+        className="mt-5 w-full max-w-md overflow-hidden rounded-sm border border-sage/20 bg-cream/75 p-1 shadow-[0_24px_60px_-38px_oklch(0.28_0.02_140/0.55)]"
+      >
+        <img
+          src="/assets/images/Vestimenta.jpeg"
+          alt="Referencia de vestimenta para la boda"
+          loading="lazy"
+          decoding="async"
+          className="aspect-[3/2] w-full rounded-[0.15rem] object-contain"
+        />
+      </motion.figure>
     </section>
   );
 }

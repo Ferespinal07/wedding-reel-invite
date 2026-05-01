@@ -59,22 +59,6 @@ export function Tips() {
           </motion.div>
         ))}
       </div>
-
-      <motion.figure
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.25 }}
-        className="mx-auto mt-6 w-full max-w-md overflow-hidden rounded-sm border border-sage/20 bg-cream/75 p-1 shadow-[0_24px_60px_-38px_oklch(0.28_0.02_140/0.55)]"
-      >
-        <img
-          src="/assets/images/Vestimenta.jpeg"
-          alt="Referencia de vestimenta para la boda"
-          loading="lazy"
-          decoding="async"
-          className="aspect-[3/2] w-full rounded-[0.15rem] object-contain"
-        />
-      </motion.figure>
     </section>
   );
 }
