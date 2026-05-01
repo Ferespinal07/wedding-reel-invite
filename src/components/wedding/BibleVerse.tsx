@@ -6,8 +6,7 @@ export function BibleVerse() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1200&q=80&auto=format&fit=crop)",
+          backgroundImage: "url(/assets/images/Poster_Rosa_Telablanca.png)",
         }}
       />
       <div className="absolute inset-0 sage-overlay" />
@@ -21,11 +20,12 @@ export function BibleVerse() {
       >
         <p className="text-[0.7rem] uppercase tracking-luxury text-blush">Palabra de Dios</p>
         <div className="mx-auto my-6 h-px w-14 bg-white/60" />
-        <p className="font-serif text-3xl font-light leading-snug italic sm:text-4xl">
-          "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso."
+        <p className="font-serif text-2xl font-light leading-snug italic sm:text-3xl">
+          "Mejores son dos que uno; porque tienen mejor paga de su trabajo. Porque si cayeren, el
+          uno levantara a su compañero. Y cordon de tres dobleces no se rompe pronto."
         </p>
         <p className="mt-8 text-[0.7rem] uppercase tracking-luxury text-white/80">
-          1 Corintios 13:4
+          Eclesiastes 4:9-12
         </p>
       </motion.div>
     </section>
