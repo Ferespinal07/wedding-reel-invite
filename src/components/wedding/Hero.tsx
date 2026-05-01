@@ -6,7 +6,7 @@ export function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url(/images/download.gif)",
+          backgroundImage: "url(/assets/images/download.gif)",
         }}
       />
       <div className="absolute inset-0 bg-cream/30 backdrop-blur-[1px]" />
