@@ -8,6 +8,7 @@ import { Hero } from "@/components/wedding/Hero";
 import { PartyMusic } from "@/components/wedding/PartyMusic";
 import { RSVP } from "@/components/wedding/RSVP";
 import { Tips } from "@/components/wedding/Tips";
+import { WeddingRings } from "@/components/wedding/WeddingRings";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
       <PartyMusic />
       <DressCode />
       <Tips />
+      <WeddingRings />
       <Gifts />
       <RSVP />
       <Toaster position="top-center" />
