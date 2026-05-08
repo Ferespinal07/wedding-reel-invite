@@ -1,3 +1,4 @@
+import type { Language } from "@/App";
 import { motion } from "framer-motion";
 import { Maximize2, Shirt } from "lucide-react";
 
@@ -10,7 +11,38 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-export function DressCode() {
+const copy = {
+  es: {
+    eyebrow: "Codigo de Vestimenta",
+    style: "Etiqueta elegante",
+    women: "Ellas",
+    womenText: "Vestido largo en tonos pasteles",
+    men: "Ellos",
+    menText: "Traje oscuro o smoking",
+    note: "Reservamos el blanco para la novia",
+    reference: "Ver referencia",
+    dialogTitle: "Referencia de vestimenta",
+    dialogDescription: "Inspiracion visual para el codigo de vestimenta de la boda.",
+    imageAlt: "Referencia de vestimenta para la boda",
+  },
+  en: {
+    eyebrow: "Dress Code",
+    style: "Elegant formal attire",
+    women: "Ladies",
+    womenText: "Long dress in pastel tones",
+    men: "Gentlemen",
+    menText: "Dark suit or tuxedo",
+    note: "White is reserved for the bride",
+    reference: "View reference",
+    dialogTitle: "Dress code reference",
+    dialogDescription: "Visual inspiration for the wedding dress code.",
+    imageAlt: "Wedding dress code reference",
+  },
+};
+
+export function DressCode({ language }: { language: Language }) {
+  const text = copy[language];
+
   return (
     <section className="snap-section relative flex flex-col items-center justify-center px-6 py-20">
       <motion.div
@@ -20,9 +52,7 @@ export function DressCode() {
         transition={{ duration: 0.8 }}
         className="text-center"
       >
-        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">
-          Código de Vestimenta
-        </p>
+        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">{text.eyebrow}</p>
         <h2 className="mt-3 font-serif text-4xl font-light italic">Dress code</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
       </motion.div>
@@ -37,25 +67,21 @@ export function DressCode() {
         <Shirt className="mx-auto h-10 w-10 text-sage" strokeWidth={1} />
         <p className="mt-6 font-serif text-4xl font-light italic text-sage-deep">Formal</p>
         <p className="mt-3 text-xs leading-relaxed tracking-wider text-muted-foreground">
-          Etiqueta elegante
+          {text.style}
         </p>
 
         <div className="mt-8 grid grid-cols-2 gap-3 text-left">
           <div className="rounded-sm border border-sage/30 p-4">
-            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">Ellas</p>
-            <p className="mt-2 font-serif text-sm italic text-foreground">
-              Vestido largo en tonos pasteles
-            </p>
+            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">{text.women}</p>
+            <p className="mt-2 font-serif text-sm italic text-foreground">{text.womenText}</p>
           </div>
           <div className="rounded-sm border border-sage/30 p-4">
-            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">Ellos</p>
-            <p className="mt-2 font-serif text-sm italic text-foreground">Traje oscuro o smoking</p>
+            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">{text.men}</p>
+            <p className="mt-2 font-serif text-sm italic text-foreground">{text.menText}</p>
           </div>
         </div>
 
-        <p className="mt-6 text-[0.65rem] uppercase tracking-luxury text-rose">
-          Reservamos el blanco para la novia
-        </p>
+        <p className="mt-6 text-[0.65rem] uppercase tracking-luxury text-rose">{text.note}</p>
 
         <Dialog>
           <DialogTrigger asChild>
@@ -65,14 +91,12 @@ export function DressCode() {
               className="mt-8 border-sage/40 bg-cream/70 px-6 text-[0.65rem] uppercase tracking-luxury text-sage-deep shadow-sm hover:bg-blush/40"
             >
               <Maximize2 className="h-3.5 w-3.5" />
-              Ver referencia
+              {text.reference}
             </Button>
           </DialogTrigger>
           <DialogContent className="h-[100dvh] max-h-none w-screen max-w-none overflow-hidden border-0 bg-cream p-0 shadow-none sm:rounded-none">
-            <DialogTitle className="sr-only">Referencia de vestimenta</DialogTitle>
-            <DialogDescription className="sr-only">
-              Inspiración visual para el código de vestimenta de la boda.
-            </DialogDescription>
+            <DialogTitle className="sr-only">{text.dialogTitle}</DialogTitle>
+            <DialogDescription className="sr-only">{text.dialogDescription}</DialogDescription>
 
             <div className="relative flex h-full w-full items-center justify-center overflow-hidden px-4 py-14 sm:px-8">
               <img
@@ -92,7 +116,7 @@ export function DressCode() {
               >
                 <img
                   src="/assets/images/Vestimenta.jpeg"
-                  alt="Referencia de vestimenta para la boda"
+                  alt={text.imageAlt}
                   className="max-h-[78dvh] w-full rounded-[0.15rem] object-contain"
                 />
               </motion.figure>

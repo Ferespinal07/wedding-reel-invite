@@ -1,6 +1,36 @@
 import { motion } from "framer-motion";
+import type { Language } from "@/App";
 
-export function Hero() {
+type HeroProps = {
+  language: Language;
+  onLanguageChange: (language: Language) => void;
+};
+
+const copy = {
+  es: {
+    eyebrow: "Nuestra Boda",
+    date: "20 . 09 . 2026",
+    verse: "Lo que Dios ha unido,",
+    verseSecond: "que no lo separe el hombre.",
+    reference: "Marcos 10:9",
+    scroll: "Desliza",
+    languageLabel: "Cambiar idioma",
+  },
+  en: {
+    eyebrow: "Our Wedding",
+    date: "09 . 20 . 2026",
+    verse: "What God has joined together,",
+    verseSecond: "let no one separate.",
+    reference: "Mark 10:9",
+    scroll: "Scroll",
+    languageLabel: "Change language",
+  },
+};
+
+export function Hero({ language, onLanguageChange }: HeroProps) {
+  const t = copy[language];
+  const nextLanguage = language === "es" ? "en" : "es";
+
   return (
     <section id="invitacion" className="snap-section relative w-full overflow-hidden">
       <div
@@ -13,6 +43,15 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-cream/65 via-cream/35 to-cream/90" />
       <div className="absolute inset-0 bg-gradient-to-r from-sage/20 via-transparent to-rose/20" />
 
+      <button
+        type="button"
+        aria-label={t.languageLabel}
+        onClick={() => onLanguageChange(nextLanguage)}
+        className="absolute right-4 top-4 z-20 border border-sage/50 bg-cream/75 px-4 py-2 text-[0.65rem] uppercase tracking-luxury text-sage-deep shadow-sm backdrop-blur-md transition-colors hover:bg-blush/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep"
+      >
+        {nextLanguage.toUpperCase()}
+      </button>
+
       <div className="relative z-10 flex min-h-[100dvh] flex-col items-center justify-center px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -20,7 +59,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.3 }}
           className="text-[0.7rem] uppercase tracking-luxury text-sage-deep"
         >
-          Nuestra Boda
+          {t.eyebrow}
         </motion.p>
 
         <motion.div
@@ -50,7 +89,7 @@ export function Hero() {
           className="mt-10 flex items-center gap-4"
         >
           <span className="h-px w-10 bg-sage/60" />
-          <p className="text-xs tracking-luxury text-foreground/80">20 . 09 . 2026</p>
+          <p className="text-xs tracking-luxury text-foreground/80">{t.date}</p>
           <span className="h-px w-10 bg-sage/60" />
         </motion.div>
 
@@ -60,11 +99,11 @@ export function Hero() {
           transition={{ duration: 1, delay: 2 }}
           className="mt-8 max-w-xs font-serif text-sm italic leading-relaxed text-foreground/75"
         >
-          "Lo que Dios ha unido,
-          <br /> que no lo separe el hombre."
+          "{t.verse}
+          <br /> {t.verseSecond}"
           <br />
           <span className="mt-2 inline-block text-[0.65rem] not-italic uppercase tracking-luxury text-sage-deep">
-            Marcos 10:9
+            {t.reference}
           </span>
         </motion.p>
 
@@ -75,7 +114,7 @@ export function Hero() {
           className="absolute bottom-8 flex flex-col items-center gap-2"
         >
           <span className="text-[0.6rem] uppercase tracking-luxury text-foreground/60">
-            Desliza
+            {t.scroll}
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}

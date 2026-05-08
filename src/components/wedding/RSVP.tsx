@@ -1,19 +1,52 @@
+import type { Language } from "@/App";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
 
-export function RSVP() {
+const copy = {
+  es: {
+    eyebrow: "Confirmacion",
+    description: "Tu presencia es nuestro mejor regalo. Confirma antes del 20 de agosto.",
+    required: "Por favor indica si asistiras",
+    thanks: "Gracias por confirmar!",
+    confirmed: "Confirmado!",
+    seeYou: "Nos vemos el 20 de septiembre.",
+    name: "Nombre Completo",
+    attending: "Asistiras?",
+    yes: "Si, asistire",
+    no: "No podre",
+    message: "Mensaje / Restricciones",
+    submit: "Enviar Confirmacion",
+  },
+  en: {
+    eyebrow: "Confirmation",
+    description: "Your presence is our best gift. Please confirm before August 20.",
+    required: "Please let us know if you will attend",
+    thanks: "Thanks for confirming!",
+    confirmed: "Confirmed!",
+    seeYou: "See you on September 20.",
+    name: "Full Name",
+    attending: "Will you attend?",
+    yes: "Yes, I will attend",
+    no: "I cannot attend",
+    message: "Message / Restrictions",
+    submit: "Send Confirmation",
+  },
+};
+
+export function RSVP({ language }: { language: Language }) {
   const [attending, setAttending] = useState<"yes" | "no" | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const text = copy[language];
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!attending) {
-      toast.error("Por favor indica si asistirás");
+      toast.error(text.required);
       return;
     }
     setSubmitted(true);
-    toast.success("¡Gracias por confirmar!");
+    toast.success(text.thanks);
   }
 
   return (
@@ -25,11 +58,11 @@ export function RSVP() {
         transition={{ duration: 0.8 }}
         className="text-center"
       >
-        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">Confirmación</p>
+        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">{text.eyebrow}</p>
         <h2 className="mt-3 font-serif text-4xl font-light italic">R.S.V.P</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
         <p className="mx-auto mt-4 max-w-xs text-xs leading-relaxed tracking-wider text-muted-foreground">
-          Tu presencia es nuestro mejor regalo. Confirma antes del 20 de agosto.
+          {text.description}
         </p>
       </motion.div>
 
@@ -39,10 +72,8 @@ export function RSVP() {
           animate={{ opacity: 1, scale: 1 }}
           className="glass mt-10 rounded-sm p-8 text-center"
         >
-          <p className="font-serif text-2xl italic text-sage-deep">¡Confirmado!</p>
-          <p className="mt-3 text-xs tracking-wider text-muted-foreground">
-            Nos vemos el 20 de septiembre.
-          </p>
+          <p className="font-serif text-2xl italic text-sage-deep">{text.confirmed}</p>
+          <p className="mt-3 text-xs tracking-wider text-muted-foreground">{text.seeYou}</p>
         </motion.div>
       ) : (
         <motion.form
@@ -55,7 +86,7 @@ export function RSVP() {
         >
           <div>
             <label className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">
-              Nombre Completo
+              {text.name}
             </label>
             <input
               required
@@ -66,7 +97,7 @@ export function RSVP() {
 
           <div>
             <label className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">
-              ¿Asistirás?
+              {text.attending}
             </label>
             <div className="mt-3 grid grid-cols-2 gap-3">
               {(["yes", "no"] as const).map((v) => (
@@ -80,7 +111,7 @@ export function RSVP() {
                       : "border-sage/40 text-foreground/80 hover:border-sage"
                   }`}
                 >
-                  {v === "yes" ? "Sí, asistiré" : "No podré"}
+                  {v === "yes" ? text.yes : text.no}
                 </button>
               ))}
             </div>
@@ -88,7 +119,7 @@ export function RSVP() {
 
           <div>
             <label className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">
-              Mensaje / Restricciones
+              {text.message}
             </label>
             <textarea
               rows={2}
@@ -100,7 +131,7 @@ export function RSVP() {
             type="submit"
             className="w-full border border-sage bg-sage py-4 text-[0.7rem] uppercase tracking-luxury text-primary-foreground transition-colors hover:bg-sage-deep"
           >
-            Enviar Confirmación
+            {text.submit}
           </button>
 
           <p className="text-center font-serif text-xl italic text-sage-deep">

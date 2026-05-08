@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
+import type { Language } from "@/App";
 
-export function WeddingRings() {
+const copy = {
+  es: "Un mismo camino",
+  en: "One shared path",
+};
+
+export function WeddingRings({ language }: { language: Language }) {
   return (
     <section className="snap-section relative flex items-center justify-center overflow-hidden bg-cream px-6 py-20">
       <motion.img
@@ -22,7 +28,7 @@ export function WeddingRings() {
         transition={{ duration: 0.9, delay: 0.25 }}
         className="relative z-10 mt-auto text-center text-foreground"
       >
-        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">Un mismo camino</p>
+        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">{copy[language]}</p>
         <div className="sage-divider mx-auto mt-5 w-24" />
       </motion.div>
     </section>

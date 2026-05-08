@@ -1,12 +1,33 @@
+import type { Language } from "@/App";
 import { motion } from "framer-motion";
 import { Music, Plus } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-export function PartyMusic() {
+const copy = {
+  es: {
+    title: "Musica de la fiesta",
+    description: "Sugiere la cancion que no puede faltar en nuestra celebracion.",
+    song: "Cancion",
+    artist: "Artista",
+    button: "Agregar a la playlist",
+    toast: "Gracias por tu sugerencia!",
+  },
+  en: {
+    title: "Party music",
+    description: "Suggest the song that cannot be missing from our celebration.",
+    song: "Song",
+    artist: "Artist",
+    button: "Add to playlist",
+    toast: "Thanks for your suggestion!",
+  },
+};
+
+export function PartyMusic({ language }: { language: Language }) {
   const [song, setSong] = useState("");
   const [artist, setArtist] = useState("");
   const [list, setList] = useState<{ song: string; artist: string }[]>([]);
+  const text = copy[language];
 
   function add(e: React.FormEvent) {
     e.preventDefault();
@@ -14,7 +35,7 @@ export function PartyMusic() {
     setList((l) => [{ song: song.trim(), artist: artist.trim() }, ...l]);
     setSong("");
     setArtist("");
-    toast.success("¡Gracias por tu sugerencia!");
+    toast.success(text.toast);
   }
 
   return (
@@ -28,10 +49,10 @@ export function PartyMusic() {
       >
         <Music className="mx-auto h-6 w-6 text-sage" strokeWidth={1.2} />
         <p className="mt-3 text-[0.7rem] uppercase tracking-luxury text-sage-deep">Playlist</p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">Música de la fiesta</h2>
+        <h2 className="mt-3 font-serif text-4xl font-light italic">{text.title}</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
         <p className="mx-auto mt-4 max-w-xs text-xs leading-relaxed text-muted-foreground">
-          Sugiere la canción que no puede faltar en nuestra celebración.
+          {text.description}
         </p>
       </motion.div>
 
@@ -39,13 +60,13 @@ export function PartyMusic() {
         <input
           value={song}
           onChange={(e) => setSong(e.target.value)}
-          placeholder="Canción"
+          placeholder={text.song}
           className="w-full border-b border-sage/40 bg-transparent py-2 text-sm tracking-wider text-foreground outline-none focus:border-sage"
         />
         <input
           value={artist}
           onChange={(e) => setArtist(e.target.value)}
-          placeholder="Artista"
+          placeholder={text.artist}
           className="w-full border-b border-sage/40 bg-transparent py-2 text-sm tracking-wider text-foreground outline-none focus:border-sage"
         />
         <button
@@ -53,7 +74,7 @@ export function PartyMusic() {
           className="flex w-full items-center justify-center gap-2 border border-sage bg-sage py-3 text-[0.65rem] uppercase tracking-luxury text-primary-foreground transition-colors hover:bg-sage-deep"
         >
           <Plus className="h-3.5 w-3.5" />
-          Agregar a la playlist
+          {text.button}
         </button>
       </form>
 

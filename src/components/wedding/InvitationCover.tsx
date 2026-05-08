@@ -10,7 +10,7 @@ const envelopeImage = "/assets/images/Sobre Invitacion.png";
 export function InvitationCover({ isOpening, onOpen }: InvitationCoverProps) {
   return (
     <section
-      className="snap-section relative isolate flex w-full items-center justify-center overflow-hidden bg-cream"
+      className="fixed inset-0 z-50 isolate flex w-full items-center justify-center overflow-hidden bg-cream"
       aria-label="Sobre de invitacion"
     >
       <motion.div

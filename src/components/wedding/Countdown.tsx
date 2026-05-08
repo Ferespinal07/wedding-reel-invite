@@ -1,3 +1,4 @@
+import type { Language } from "@/App";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -15,9 +16,25 @@ function calc() {
 
 const ZERO = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
-export function Countdown() {
+const copy = {
+  es: {
+    eyebrow: "Cuenta Regresiva",
+    title: "Falta poco para",
+    titleSecond: "nuestro gran dia",
+    labels: ["Dias", "Horas", "Minutos", "Segundos"],
+  },
+  en: {
+    eyebrow: "Countdown",
+    title: "Almost time for",
+    titleSecond: "our big day",
+    labels: ["Days", "Hours", "Minutes", "Seconds"],
+  },
+};
+
+export function Countdown({ language }: { language: Language }) {
   const [t, setT] = useState(ZERO);
   const [mounted, setMounted] = useState(false);
+  const text = copy[language];
 
   useEffect(() => {
     setMounted(true);
@@ -27,10 +44,10 @@ export function Countdown() {
   }, []);
 
   const items = [
-    { label: "Días", value: t.days },
-    { label: "Horas", value: t.hours },
-    { label: "Minutos", value: t.minutes },
-    { label: "Segundos", value: t.seconds },
+    { label: text.labels[0], value: t.days },
+    { label: text.labels[1], value: t.hours },
+    { label: text.labels[2], value: t.minutes },
+    { label: text.labels[3], value: t.seconds },
   ];
 
   return (
@@ -42,7 +59,7 @@ export function Countdown() {
         transition={{ duration: 0.8 }}
         className="text-[0.7rem] uppercase tracking-luxury text-sage-deep"
       >
-        Cuenta Regresiva
+        {text.eyebrow}
       </motion.p>
 
       <motion.h2
@@ -52,9 +69,9 @@ export function Countdown() {
         transition={{ duration: 1, delay: 0.2 }}
         className="mt-4 text-center font-serif text-4xl font-light italic"
       >
-        Falta poco para
+        {text.title}
         <br />
-        nuestro gran día
+        {text.titleSecond}
       </motion.h2>
 
       <div className="sage-divider my-10 w-32" />

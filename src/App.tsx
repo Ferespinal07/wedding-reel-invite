@@ -12,9 +12,13 @@ import { Tips } from "@/components/wedding/Tips";
 import { WeddingRings } from "@/components/wedding/WeddingRings";
 import { useRef, useState } from "react";
 
+export type Language = "es" | "en";
+
 export default function App() {
   const [isOpening, setIsOpening] = useState(false);
   const [canScroll, setCanScroll] = useState(false);
+  const [showCover, setShowCover] = useState(true);
+  const [language, setLanguage] = useState<Language>("es");
   const inviteRef = useRef<HTMLElement>(null);
 
   const openInvitation = () => {
@@ -22,26 +26,32 @@ export default function App() {
 
     setIsOpening(true);
     window.setTimeout(() => {
+      setShowCover(false);
       setCanScroll(true);
-      inviteRef.current?.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-    }, 850);
+      inviteRef.current?.scrollTo({ top: 0, behavior: "auto" });
+    }, 1000);
   };
 
   return (
-    <main ref={inviteRef} className={`bg-background ${canScroll ? "scroll-snap-y" : "invite-locked"}`}>
-      <InvitationCover isOpening={isOpening} onOpen={openInvitation} />
-      <Hero />
-      <Countdown />
-      <Ceremony />
-      <Celebration />
-      <BibleVerse />
-      <PartyMusic />
-      <DressCode />
-      <Tips />
-      <WeddingRings />
-      <Gifts />
-      <RSVP />
-      <Toaster position="top-center" />
-    </main>
+    <>
+      {showCover && <InvitationCover isOpening={isOpening} onOpen={openInvitation} />}
+      <main
+        ref={inviteRef}
+        className={`bg-background ${canScroll ? "scroll-snap-y" : "invite-locked"}`}
+      >
+        <Hero language={language} onLanguageChange={setLanguage} />
+        <Countdown language={language} />
+        <Ceremony language={language} />
+        <Celebration language={language} />
+        <BibleVerse language={language} />
+        <PartyMusic language={language} />
+        <DressCode language={language} />
+        <Tips language={language} />
+        <WeddingRings language={language} />
+        <Gifts language={language} />
+        <RSVP language={language} />
+        <Toaster position="top-center" />
+      </main>
+    </>
   );
 }

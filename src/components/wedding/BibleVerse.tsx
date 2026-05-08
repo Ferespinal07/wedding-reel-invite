@@ -1,6 +1,24 @@
+import type { Language } from "@/App";
 import { motion } from "framer-motion";
 
-export function BibleVerse() {
+const copy = {
+  es: {
+    eyebrow: "Palabra de Dios",
+    verse:
+      "Mejores son dos que uno; porque tienen mejor paga de su trabajo. Porque si cayeren, el uno levantara a su companero. Y cordon de tres dobleces no se rompe pronto.",
+    reference: "Eclesiastes 4:9-12",
+  },
+  en: {
+    eyebrow: "God's Word",
+    verse:
+      "Two are better than one, because they have a good return for their labor. If either of them falls down, one can help the other up. A cord of three strands is not quickly broken.",
+    reference: "Ecclesiastes 4:9-12",
+  },
+};
+
+export function BibleVerse({ language }: { language: Language }) {
+  const text = copy[language];
+
   return (
     <section className="snap-section relative flex items-center justify-center overflow-hidden px-6 py-20">
       <div
@@ -18,14 +36,13 @@ export function BibleVerse() {
         transition={{ duration: 1.2 }}
         className="relative z-10 max-w-md text-center text-white"
       >
-        <p className="text-[0.7rem] uppercase tracking-luxury text-blush">Palabra de Dios</p>
+        <p className="text-[0.7rem] uppercase tracking-luxury text-blush">{text.eyebrow}</p>
         <div className="mx-auto my-6 h-px w-14 bg-white/60" />
         <p className="font-serif text-2xl font-light leading-snug italic sm:text-3xl">
-          "Mejores son dos que uno; porque tienen mejor paga de su trabajo. Porque si cayeren, el
-          uno levantara a su compañero. Y cordon de tres dobleces no se rompe pronto."
+          "{text.verse}"
         </p>
         <p className="mt-8 text-[0.7rem] uppercase tracking-luxury text-white/80">
-          Eclesiastes 4:9-12
+          {text.reference}
         </p>
       </motion.div>
     </section>
