@@ -9,7 +9,7 @@ type HeroProps = {
 const copy = {
   es: {
     eyebrow: "Nuestra Boda",
-    date: "20 . 09 . 2026",
+    date: "18 . 07 . 2026",
     verse: "Lo que Dios ha unido,",
     verseSecond: "que no lo separe el hombre.",
     reference: "Marcos 10:9",
@@ -18,7 +18,7 @@ const copy = {
   },
   en: {
     eyebrow: "Our Wedding",
-    date: "09 . 20 . 2026",
+    date: "07 . 18 . 2026",
     verse: "What God has joined together,",
     verseSecond: "let no one separate.",
     reference: "Mark 10:9",

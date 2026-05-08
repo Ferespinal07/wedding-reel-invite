@@ -23,8 +23,8 @@ const events = {
     ceremony: {
       kind: "Ceremonia",
       title: "Ceremonia Religiosa",
-      day: "Domingo, 20 de Septiembre",
-      time: "4:00 PM",
+      day: "Sabado, 18 de Julio",
+      time: "7:00 PM",
       place: "Iglesia Santa Maria",
       address: "Av. Principal 123, Santo Domingo",
       map: "https://maps.google.com/?q=Iglesia+Santa+Maria+Santo+Domingo",
@@ -36,8 +36,8 @@ const events = {
     celebration: {
       kind: "Celebracion",
       title: "Recepcion & Fiesta",
-      day: "Domingo, 20 de Septiembre",
-      time: "6:30 PM",
+      day: "Sabado, 18 de Julio",
+      time: "7:00 PM",
       place: "Hacienda La Esperanza",
       address: "Carretera Sanchez Km 12",
       map: "https://maps.google.com/?q=Hacienda+La+Esperanza",
@@ -54,8 +54,8 @@ const events = {
     ceremony: {
       kind: "Ceremony",
       title: "Religious Ceremony",
-      day: "Sunday, September 20",
-      time: "4:00 PM",
+      day: "Saturday, July 18",
+      time: "7:00 PM",
       place: "Santa Maria Church",
       address: "Av. Principal 123, Santo Domingo",
       map: "https://maps.google.com/?q=Iglesia+Santa+Maria+Santo+Domingo",
@@ -67,8 +67,8 @@ const events = {
     celebration: {
       kind: "Celebration",
       title: "Reception & Party",
-      day: "Sunday, September 20",
-      time: "6:30 PM",
+      day: "Saturday, July 18",
+      time: "7:00 PM",
       place: "Hacienda La Esperanza",
       address: "Carretera Sanchez Km 12",
       map: "https://maps.google.com/?q=Hacienda+La+Esperanza",
@@ -81,8 +81,8 @@ const events = {
 };
 
 function buildCalUrl(event: Event) {
-  const start = event.kind === "Ceremonia" || event.kind === "Ceremony" ? "20260920T160000" : "20260920T183000";
-  const end = event.kind === "Ceremonia" || event.kind === "Ceremony" ? "20260920T173000" : "20260920T230000";
+  const start = "20260718T190000";
+  const end = "20260718T230000";
   const text = encodeURIComponent(event.calendarTitle);
   const details = encodeURIComponent(event.calendarDetails);
   const location = encodeURIComponent(`${event.place}, ${event.address}`);

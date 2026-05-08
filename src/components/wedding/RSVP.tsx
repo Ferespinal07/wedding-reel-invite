@@ -6,11 +6,11 @@ import { toast } from "sonner";
 const copy = {
   es: {
     eyebrow: "Confirmacion",
-    description: "Tu presencia es nuestro mejor regalo. Confirma antes del 20 de agosto.",
+    description: "Tu presencia es nuestro mejor regalo. Confirma tu asistencia con anticipacion.",
     required: "Por favor indica si asistiras",
     thanks: "Gracias por confirmar!",
     confirmed: "Confirmado!",
-    seeYou: "Nos vemos el 20 de septiembre.",
+    seeYou: "Nos vemos el 18 de julio.",
     name: "Nombre Completo",
     attending: "Asistiras?",
     yes: "Si, asistire",
@@ -20,11 +20,11 @@ const copy = {
   },
   en: {
     eyebrow: "Confirmation",
-    description: "Your presence is our best gift. Please confirm before August 20.",
+    description: "Your presence is our best gift. Please confirm your attendance in advance.",
     required: "Please let us know if you will attend",
     thanks: "Thanks for confirming!",
     confirmed: "Confirmed!",
-    seeYou: "See you on September 20.",
+    seeYou: "See you on July 18.",
     name: "Full Name",
     attending: "Will you attend?",
     yes: "Yes, I will attend",
