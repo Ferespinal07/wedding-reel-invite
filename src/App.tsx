@@ -22,7 +22,6 @@ export default function App() {
   const [language, setLanguage] = useState<Language>("es");
   const inviteRef = useRef<HTMLElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isMusicMuted, setIsMusicMuted] = useState(false);
 
   const openInvitation = () => {
@@ -31,26 +30,12 @@ export default function App() {
     setIsOpening(true);
     audioRef.current
       ?.play()
-      .then(() => setIsMusicPlaying(true))
-      .catch(() => setIsMusicPlaying(false));
+      .catch(() => undefined);
     window.setTimeout(() => {
       setShowCover(false);
       setCanScroll(true);
       inviteRef.current?.scrollTo({ top: 0, behavior: "auto" });
     }, 1000);
-  };
-
-  const toggleMusic = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (audio.paused) {
-      audio.play().then(() => setIsMusicPlaying(true)).catch(() => setIsMusicPlaying(false));
-      return;
-    }
-
-    audio.pause();
-    setIsMusicPlaying(false);
   };
 
   const toggleMute = () => {
@@ -72,9 +57,7 @@ export default function App() {
       {showCover && <InvitationCover isOpening={isOpening} onOpen={openInvitation} />}
       {!showCover && (
         <MusicControl
-          isPlaying={isMusicPlaying}
           isMuted={isMusicMuted}
-          onTogglePlay={toggleMusic}
           onToggleMute={toggleMute}
         />
       )}
