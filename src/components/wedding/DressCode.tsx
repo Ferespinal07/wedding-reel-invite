@@ -43,7 +43,7 @@ export function DressCode({ language }: { language: Language }) {
   const text = copy[language];
 
   return (
-    <section className="relative min-h-[100dvh] scroll-mt-0 overflow-hidden bg-cream px-6 py-20">
+    <section className="snap-section relative overflow-hidden bg-cream px-6 py-20">
       <div className="absolute inset-0 bg-gradient-to-b from-cream via-blush/20 to-cream" />
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center">
         <motion.div
