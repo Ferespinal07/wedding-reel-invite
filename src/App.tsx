@@ -10,22 +10,25 @@ import { PartyMusic } from "@/components/wedding/PartyMusic";
 import { RSVP } from "@/components/wedding/RSVP";
 import { Tips } from "@/components/wedding/Tips";
 import { WeddingRings } from "@/components/wedding/WeddingRings";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function App() {
   const [isOpening, setIsOpening] = useState(false);
+  const [canScroll, setCanScroll] = useState(false);
+  const inviteRef = useRef<HTMLElement>(null);
 
   const openInvitation = () => {
     if (isOpening) return;
 
     setIsOpening(true);
     window.setTimeout(() => {
-      document.getElementById("invitacion")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 950);
+      setCanScroll(true);
+      inviteRef.current?.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    }, 850);
   };
 
   return (
-    <main className="scroll-snap-y bg-background">
+    <main ref={inviteRef} className={`bg-background ${canScroll ? "scroll-snap-y" : "invite-locked"}`}>
       <InvitationCover isOpening={isOpening} onOpen={openInvitation} />
       <Hero />
       <Countdown />

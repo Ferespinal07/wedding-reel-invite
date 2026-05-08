@@ -122,6 +122,12 @@
     overflow-y: scroll;
   }
 
+  .invite-locked {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
   .snap-section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
