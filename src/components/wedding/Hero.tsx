@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="snap-section relative w-full overflow-hidden">
+    <section id="invitacion" className="snap-section relative w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
