@@ -39,9 +39,6 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           backgroundImage: "url(/assets/images/download.gif)",
         }}
       />
-      <div className="absolute inset-0 bg-cream/30 backdrop-blur-[1px]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-cream/65 via-cream/35 to-cream/90" />
-      <div className="absolute inset-0 bg-gradient-to-r from-sage/20 via-transparent to-rose/20" />
 
       <button
         type="button"

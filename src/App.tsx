@@ -6,6 +6,7 @@ import { DressCode } from "@/components/wedding/DressCode";
 import { Gifts } from "@/components/wedding/Gifts";
 import { Hero } from "@/components/wedding/Hero";
 import { InvitationCover } from "@/components/wedding/InvitationCover";
+import { MusicControl } from "@/components/wedding/MusicControl";
 import { PartyMusic } from "@/components/wedding/PartyMusic";
 import { RSVP } from "@/components/wedding/RSVP";
 import { Tips } from "@/components/wedding/Tips";
@@ -20,11 +21,18 @@ export default function App() {
   const [showCover, setShowCover] = useState(true);
   const [language, setLanguage] = useState<Language>("es");
   const inviteRef = useRef<HTMLElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [isMusicMuted, setIsMusicMuted] = useState(false);
 
   const openInvitation = () => {
     if (isOpening) return;
 
     setIsOpening(true);
+    audioRef.current
+      ?.play()
+      .then(() => setIsMusicPlaying(true))
+      .catch(() => setIsMusicPlaying(false));
     window.setTimeout(() => {
       setShowCover(false);
       setCanScroll(true);
@@ -32,9 +40,44 @@ export default function App() {
     }, 1000);
   };
 
+  const toggleMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      audio.play().then(() => setIsMusicPlaying(true)).catch(() => setIsMusicPlaying(false));
+      return;
+    }
+
+    audio.pause();
+    setIsMusicPlaying(false);
+  };
+
+  const toggleMute = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.muted = !audio.muted;
+    setIsMusicMuted(audio.muted);
+  };
+
   return (
     <>
+      <audio
+        ref={audioRef}
+        src="/assets/images/Hasta%20el%20Fin%20(Bonus%20Track).mp3"
+        loop
+        preload="auto"
+      />
       {showCover && <InvitationCover isOpening={isOpening} onOpen={openInvitation} />}
+      {!showCover && (
+        <MusicControl
+          isPlaying={isMusicPlaying}
+          isMuted={isMusicMuted}
+          onTogglePlay={toggleMusic}
+          onToggleMute={toggleMute}
+        />
+      )}
       <main
         ref={inviteRef}
         className={`bg-background ${canScroll ? "scroll-snap-y" : "invite-locked"}`}
