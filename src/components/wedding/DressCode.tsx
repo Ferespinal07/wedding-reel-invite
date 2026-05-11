@@ -104,7 +104,6 @@ export function DressCode({ language }: { language: Language }) {
             transition={{ duration: 0.85 }}
             className="order-2 lg:order-1"
           >
-            <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">{text.palette}</p>
             <h3 className="mt-3 font-serif text-4xl font-light italic text-foreground">
               {text.style}
             </h3>
