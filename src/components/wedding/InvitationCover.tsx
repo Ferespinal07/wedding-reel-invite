@@ -17,7 +17,11 @@ export function InvitationCover({ isOpening, onOpen }: InvitationCoverProps) {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url("${envelopeImage}")` }}
         initial={false}
-        animate={isOpening ? { opacity: 0, scale: 1.04, filter: "blur(8px)" } : { opacity: 1, scale: 1, filter: "blur(0px)" }}
+        animate={
+          isOpening
+            ? { opacity: 0, scale: 1.04, filter: "blur(8px)" }
+            : { opacity: 1, scale: 1, filter: "blur(0px)" }
+        }
         transition={{ duration: 1, ease: "easeInOut" }}
       />
 

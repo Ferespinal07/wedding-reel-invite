@@ -28,9 +28,7 @@ export default function App() {
     if (isOpening) return;
 
     setIsOpening(true);
-    audioRef.current
-      ?.play()
-      .catch(() => undefined);
+    audioRef.current?.play().catch(() => undefined);
     window.setTimeout(() => {
       setShowCover(false);
       setCanScroll(true);
@@ -55,12 +53,7 @@ export default function App() {
         preload="auto"
       />
       {showCover && <InvitationCover isOpening={isOpening} onOpen={openInvitation} />}
-      {!showCover && (
-        <MusicControl
-          isMuted={isMusicMuted}
-          onToggleMute={toggleMute}
-        />
-      )}
+      {!showCover && <MusicControl isMuted={isMusicMuted} onToggleMute={toggleMute} />}
       <main
         ref={inviteRef}
         className={`bg-background ${canScroll ? "invite-scroll" : "invite-locked"}`}
