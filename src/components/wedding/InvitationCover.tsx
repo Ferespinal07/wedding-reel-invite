@@ -31,10 +31,10 @@ export function InvitationCover({ isOpening, onOpen }: InvitationCoverProps) {
         animate={isOpening ? { scale: 1.08, opacity: 0 } : { scale: 1, opacity: 1 }}
         transition={{ duration: 0.55, ease: "easeInOut" }}
       >
-        <span className="absolute inset-0 rounded-full bg-sage/10 shadow-[0_0_0_1px_oklch(0.48_0.06_130_/_0.25),0_0_34px_oklch(0.48_0.06_130_/_0.28)]" />
+        <span className="absolute inset-0 rounded-full bg-sage/5 shadow-[0_0_0_1px_oklch(0.48_0.06_130_/_0.12),0_0_28px_oklch(0.48_0.06_130_/_0.12)]" />
         <motion.span
-          className="absolute inset-3 rounded-full border border-sage-deep/25"
-          animate={{ scale: [1, 1.12, 1], opacity: [0.8, 0.28, 0.8] }}
+          className="absolute inset-3 rounded-full border border-sage-deep/10"
+          animate={{ scale: [1, 1.12, 1], opacity: [0.35, 0.12, 0.35] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
         />
       </motion.button>

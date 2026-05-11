@@ -34,7 +34,7 @@ export default function App() {
     window.setTimeout(() => {
       setShowCover(false);
       setCanScroll(true);
-      inviteRef.current?.scrollTo({ top: 0, behavior: "auto" });
+      window.scrollTo({ top: 0, behavior: "auto" });
     }, 1000);
   };
 
@@ -63,7 +63,7 @@ export default function App() {
       )}
       <main
         ref={inviteRef}
-        className={`bg-background ${canScroll ? "scroll-snap-y" : "invite-locked"}`}
+        className={`bg-background ${canScroll ? "invite-scroll" : "invite-locked"}`}
       >
         <Hero language={language} onLanguageChange={setLanguage} />
         <Countdown language={language} />
