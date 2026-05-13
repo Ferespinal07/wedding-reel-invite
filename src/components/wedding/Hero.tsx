@@ -36,9 +36,11 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url(/assets/images/download.gif)",
+          backgroundImage: "url(/assets/images/PortadaBoda.png)",
         }}
       />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.97_0.008_90_/_0.76)_0%,oklch(0.97_0.008_90_/_0.56)_42%,oklch(0.28_0.02_140_/_0.34)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,oklch(0.28_0.02_140_/_0.2)_100%)]" />
 
       <button
         type="button"
@@ -54,7 +56,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-[0.7rem] uppercase tracking-luxury text-sage-deep"
+          className="text-[0.7rem] uppercase tracking-luxury text-sage-deep drop-shadow-[0_1px_12px_oklch(0.97_0.008_90_/_0.95)]"
         >
           {t.eyebrow}
         </motion.p>
@@ -70,7 +72,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 0.8 }}
-          className="font-serif text-6xl font-light leading-[0.95] text-foreground sm:text-7xl"
+          className="font-serif text-6xl font-light leading-[0.95] text-foreground drop-shadow-[0_2px_18px_oklch(0.97_0.008_90_/_0.96)] sm:text-7xl"
         >
           Junior
           <br />
@@ -86,7 +88,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           className="mt-10 flex items-center gap-4"
         >
           <span className="h-px w-10 bg-sage/60" />
-          <p className="text-xs tracking-luxury text-foreground/80">{t.date}</p>
+          <p className="text-xs tracking-luxury text-foreground drop-shadow-[0_1px_12px_oklch(0.97_0.008_90_/_0.9)]">{t.date}</p>
           <span className="h-px w-10 bg-sage/60" />
         </motion.div>
 
@@ -94,7 +96,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 2 }}
-          className="mt-8 max-w-xs font-serif text-sm italic leading-relaxed text-foreground/75"
+          className="mt-8 max-w-xs font-serif text-sm italic leading-relaxed text-foreground drop-shadow-[0_1px_12px_oklch(0.97_0.008_90_/_0.9)]"
         >
           "{t.verse}
           <br /> {t.verseSecond}"
@@ -110,7 +112,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           transition={{ duration: 1, delay: 2.4 }}
           className="absolute bottom-8 flex flex-col items-center gap-2"
         >
-          <span className="text-[0.6rem] uppercase tracking-luxury text-foreground/60">
+          <span className="text-[0.6rem] uppercase tracking-luxury text-foreground drop-shadow-[0_1px_10px_oklch(0.97_0.008_90_/_0.85)]">
             {t.scroll}
           </span>
           <motion.div
