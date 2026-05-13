@@ -33,11 +33,14 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
 
   return (
     <section id="invitacion" className="snap-section relative w-full overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url(/assets/images/PortadaBoda.png)",
-        }}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/assets/images/Video_Portada_Boda.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
       />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.97_0.008_90_/_0.76)_0%,oklch(0.97_0.008_90_/_0.56)_42%,oklch(0.28_0.02_140_/_0.34)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,oklch(0.28_0.02_140_/_0.2)_100%)]" />
