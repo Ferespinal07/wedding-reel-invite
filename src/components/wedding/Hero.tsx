@@ -42,14 +42,12 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
         playsInline
         preload="auto"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.97_0.008_90_/_0.76)_0%,oklch(0.97_0.008_90_/_0.56)_42%,oklch(0.28_0.02_140_/_0.34)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,oklch(0.28_0.02_140_/_0.2)_100%)]" />
 
       <button
         type="button"
         aria-label={t.languageLabel}
         onClick={() => onLanguageChange(nextLanguage)}
-        className="absolute right-4 top-4 z-20 border border-sage/50 bg-cream/75 px-4 py-2 text-[0.65rem] uppercase tracking-luxury text-sage-deep shadow-sm backdrop-blur-md transition-colors hover:bg-blush/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep"
+        className="absolute right-4 top-4 z-20 border border-sage bg-cream px-4 py-2 text-[0.65rem] uppercase tracking-luxury text-sage-deep shadow-sm transition-colors hover:bg-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep"
       >
         {nextLanguage.toUpperCase()}
       </button>
@@ -75,11 +73,11 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 0.8 }}
-          className="font-serif text-6xl font-light leading-[0.95] text-foreground drop-shadow-[0_2px_18px_oklch(0.97_0.008_90_/_0.96)] sm:text-7xl"
+          className="font-display text-7xl font-light leading-[0.86] text-foreground drop-shadow-[0_2px_18px_oklch(0.97_0.008_90_/_0.96)] sm:text-8xl"
         >
           Junior
           <br />
-          <span className="font-serif italic text-sage">&</span>
+          <span className="font-display text-rose">&</span>
           <br />
           Omaisy
         </motion.h1>
@@ -90,9 +88,9 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           transition={{ duration: 1, delay: 1.6 }}
           className="mt-10 flex items-center gap-4"
         >
-          <span className="h-px w-10 bg-sage/60" />
+          <span className="h-px w-10 bg-sage" />
           <p className="text-xs tracking-luxury text-foreground drop-shadow-[0_1px_12px_oklch(0.97_0.008_90_/_0.9)]">{t.date}</p>
-          <span className="h-px w-10 bg-sage/60" />
+          <span className="h-px w-10 bg-sage" />
         </motion.div>
 
         <motion.p
@@ -121,7 +119,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="h-8 w-px bg-sage/60"
+            className="h-8 w-px bg-sage"
           />
         </motion.div>
       </div>

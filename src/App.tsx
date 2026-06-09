@@ -48,7 +48,7 @@ export default function App() {
     <>
       <audio
         ref={audioRef}
-        src="/assets/images/I Prayed for You  A Beautiful Christian Wedding Song  Faithful Love Story Duet.mp3"
+        src="/assets/music/Photograph%20-%20Ed%20Sheeran%20-%20Violin%20cover%20-%20Daniel%20Jang.mp3"
         loop
         preload="auto"
       />
