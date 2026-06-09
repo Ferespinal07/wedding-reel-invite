@@ -7,10 +7,12 @@ const copy = {
   es: {
     eyebrow: "Confirmacion",
     description: "Tu presencia es nuestro mejor regalo. Confirma tu asistencia con anticipacion.",
+    deadline: "Agradecemos confirmar antes del dia 15 del mes de junio.",
     required: "Por favor indica si asistiras",
+    nameRequired: "Por favor escribe tu nombre",
     thanks: "Gracias por confirmar!",
     confirmed: "Confirmado!",
-    seeYou: "Nos vemos el 18 de julio.",
+    seeYou: "Tu confirmacion se abrira en WhatsApp para enviarla a la novia.",
     name: "Nombre Completo",
     attending: "Asistiras?",
     yes: "Si, asistire",
@@ -21,10 +23,12 @@ const copy = {
   en: {
     eyebrow: "Confirmation",
     description: "Your presence is our best gift. Please confirm your attendance in advance.",
+    deadline: "We kindly ask you to confirm before June 15.",
     required: "Please let us know if you will attend",
+    nameRequired: "Please enter your name",
     thanks: "Thanks for confirming!",
     confirmed: "Confirmed!",
-    seeYou: "See you on July 18.",
+    seeYou: "Your confirmation will open in WhatsApp so it can be sent to the bride.",
     name: "Full Name",
     attending: "Will you attend?",
     yes: "Yes, I will attend",
@@ -34,17 +38,43 @@ const copy = {
   },
 };
 
+const BRIDE_WHATSAPP_NUMBER = "18299280575";
+
 export function RSVP({ language }: { language: Language }) {
   const [attending, setAttending] = useState<"yes" | "no" | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
   const text = copy[language];
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const trimmedName = name.trim();
+
+    if (!trimmedName) {
+      toast.error(text.nameRequired);
+      return;
+    }
+
     if (!attending) {
       toast.error(text.required);
       return;
     }
+
+    const attendanceText = attending === "yes" ? text.yes : text.no;
+    const whatsappMessage = [
+      `Hola, soy ${trimmedName}.`,
+      "Quiero confirmar mi asistencia a la boda de Junior & Omaisy.",
+      `Asistencia: ${attendanceText}.`,
+      message.trim() ? `Mensaje / Restricciones: ${message.trim()}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+    const whatsappUrl = `https://wa.me/${BRIDE_WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      whatsappMessage,
+    )}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setSubmitted(true);
     toast.success(text.thanks);
   }
@@ -63,6 +93,9 @@ export function RSVP({ language }: { language: Language }) {
         <div className="sage-divider mx-auto mt-6 w-24" />
         <p className="mx-auto mt-4 max-w-xs text-xs leading-relaxed tracking-wider text-muted-foreground">
           {text.description}
+        </p>
+        <p className="mx-auto mt-4 max-w-xs font-serif text-xl font-light italic leading-snug text-sage-deep">
+          {text.deadline}
         </p>
       </motion.div>
 
@@ -91,6 +124,8 @@ export function RSVP({ language }: { language: Language }) {
             <input
               required
               type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="mt-2 w-full border-b border-sage/40 bg-transparent py-2 text-sm tracking-wider text-foreground outline-none focus:border-sage"
             />
           </div>
@@ -123,6 +158,8 @@ export function RSVP({ language }: { language: Language }) {
             </label>
             <textarea
               rows={2}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="mt-2 w-full resize-none border-b border-sage/40 bg-transparent py-2 text-sm tracking-wider text-foreground outline-none focus:border-sage"
             />
           </div>
