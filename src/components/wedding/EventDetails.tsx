@@ -1,15 +1,13 @@
 import type { Language } from "@/App";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin } from "lucide-react";
+import { Calendar, Clock, HeartHandshake, MapPinCheck, Sparkles } from "lucide-react";
 
-type Event = {
+type EventMoment = {
   kind: string;
   title: string;
   day: string;
   time: string;
-  place: string;
-  address: string;
-  map: string;
+  note: string;
   image: string;
   calendarTitle: string;
   calendarDetails: string;
@@ -17,174 +15,219 @@ type Event = {
 
 const events = {
   es: {
-    ceremonySubtitle: "La ceremonia",
-    celebrationSubtitle: "La celebracion",
-    directions: "Como Llegar",
-    ceremony: {
-      kind: "Ceremonia",
-      title: "Ceremonia Religiosa",
-      day: "Sabado, 18 de Julio",
-      time: "7:00 PM",
-      place: "Iglesia Santa Maria",
-      address: "Av. Principal 123, Santo Domingo",
-      map: "https://maps.google.com/?q=Iglesia+Santa+Maria+Santo+Domingo",
-      image:
-        "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format&fit=crop",
-      calendarTitle: "Ceremonia Religiosa - Junior & Omaisy",
-      calendarDetails: "Te esperamos en Iglesia Santa Maria",
-    },
-    celebration: {
-      kind: "Celebracion",
-      title: "Recepcion & Fiesta",
-      day: "Sabado, 18 de Julio",
-      time: "7:00 PM",
-      place: "Hacienda La Esperanza",
-      address: "Carretera Sanchez Km 12",
-      map: "https://maps.google.com/?q=Hacienda+La+Esperanza",
-      image:
-        "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&auto=format&fit=crop",
-      calendarTitle: "Recepcion & Fiesta - Junior & Omaisy",
-      calendarDetails: "Te esperamos en Hacienda La Esperanza",
-    },
+    eyebrow: "Nuestro Dia",
+    title: "Ceremonia & celebracion",
+    intro:
+      "Dos momentos, una misma promesa. Queremos vivir cada instante contigo, desde el si ante Dios hasta el abrazo alegre de la celebracion.",
+    locationTitle: "Ubicacion reservada",
+    locationText:
+      "La ubicacion exacta sera confirmada luego de recibir tu confirmacion de asistencia.",
+    rsvp: "Confirmar asistencia",
+    save: "Agendar",
+    moments: [
+      {
+        kind: "01 / Ceremonia",
+        title: "Ceremonia Religiosa",
+        day: "Sabado, 18 de Julio",
+        time: "7:00 PM",
+        note: "Un momento intimo y solemne para bendecir el inicio de nuestra vida juntos.",
+        image:
+          "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop",
+        calendarTitle: "Ceremonia Religiosa - Junior & Omaisy",
+        calendarDetails:
+          "La ubicacion exacta sera compartida luego de confirmar asistencia.",
+      },
+      {
+        kind: "02 / Celebracion",
+        title: "Recepcion & Fiesta",
+        day: "Sabado, 18 de Julio",
+        time: "Al finalizar la ceremonia",
+        note: "Despues de la ceremonia, brindaremos, cenaremos y bailaremos para celebrar el amor.",
+        image:
+          "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=80&auto=format&fit=crop",
+        calendarTitle: "Recepcion & Fiesta - Junior & Omaisy",
+        calendarDetails:
+          "La ubicacion exacta sera compartida luego de confirmar asistencia.",
+      },
+    ],
   },
   en: {
-    ceremonySubtitle: "The ceremony",
-    celebrationSubtitle: "The celebration",
-    directions: "Directions",
-    ceremony: {
-      kind: "Ceremony",
-      title: "Religious Ceremony",
-      day: "Saturday, July 18",
-      time: "7:00 PM",
-      place: "Santa Maria Church",
-      address: "Av. Principal 123, Santo Domingo",
-      map: "https://maps.google.com/?q=Iglesia+Santa+Maria+Santo+Domingo",
-      image:
-        "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format&fit=crop",
-      calendarTitle: "Religious Ceremony - Junior & Omaisy",
-      calendarDetails: "We will be waiting for you at Santa Maria Church",
-    },
-    celebration: {
-      kind: "Celebration",
-      title: "Reception & Party",
-      day: "Saturday, July 18",
-      time: "7:00 PM",
-      place: "Hacienda La Esperanza",
-      address: "Carretera Sanchez Km 12",
-      map: "https://maps.google.com/?q=Hacienda+La+Esperanza",
-      image:
-        "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&auto=format&fit=crop",
-      calendarTitle: "Reception & Party - Junior & Omaisy",
-      calendarDetails: "We will be waiting for you at Hacienda La Esperanza",
-    },
+    eyebrow: "Our Day",
+    title: "Ceremony & celebration",
+    intro:
+      "Two moments, one promise. We want to share every part of the day with you, from our blessing before God to the joy of the celebration.",
+    locationTitle: "Reserved location",
+    locationText: "The exact location will be confirmed after your attendance is received.",
+    rsvp: "Confirm attendance",
+    save: "Save",
+    moments: [
+      {
+        kind: "01 / Ceremony",
+        title: "Religious Ceremony",
+        day: "Saturday, July 18",
+        time: "7:00 PM",
+        note: "An intimate and sacred moment to bless the beginning of our life together.",
+        image:
+          "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop",
+        calendarTitle: "Religious Ceremony - Junior & Omaisy",
+        calendarDetails: "The exact location will be shared after confirming attendance.",
+      },
+      {
+        kind: "02 / Celebration",
+        title: "Reception & Party",
+        day: "Saturday, July 18",
+        time: "After the ceremony",
+        note: "After the ceremony, we will toast, dine, and dance in celebration of love.",
+        image:
+          "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=80&auto=format&fit=crop",
+        calendarTitle: "Reception & Party - Junior & Omaisy",
+        calendarDetails: "The exact location will be shared after confirming attendance.",
+      },
+    ],
   },
 };
 
-function buildCalUrl(event: Event) {
+function buildCalUrl(event: EventMoment) {
   const start = "20260718T190000";
-  const end = "20260718T230000";
+  const end = event.kind.includes("01") ? "20260718T203000" : "20260718T233000";
   const text = encodeURIComponent(event.calendarTitle);
   const details = encodeURIComponent(event.calendarDetails);
-  const location = encodeURIComponent(`${event.place}, ${event.address}`);
+  const location = encodeURIComponent("Ubicacion por confirmar");
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${start}/${end}&details=${details}&location=${location}`;
 }
 
-function EventSection({
-  event,
-  subtitle,
-  directions,
-}: {
-  event: Event;
-  subtitle: string;
-  directions: string;
-}) {
-  return (
-    <section className="snap-section relative flex flex-col justify-center px-6 py-20">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="text-center"
-      >
-        <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">{event.kind}</p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">{subtitle}</h2>
-        <div className="sage-divider mx-auto mt-6 w-24" />
-      </motion.div>
+export function EventDetails({ language }: { language: Language }) {
+  const text = events[language];
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.15 }}
-        className="glass mt-10 overflow-hidden rounded-sm"
-      >
-        <div
-          className="h-40 w-full bg-cover bg-center"
-          style={{ backgroundImage: `url(${event.image})` }}
-        />
-        <div className="p-6">
-          <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">{event.kind}</p>
-          <h3 className="mt-1 font-serif text-2xl font-light text-foreground">{event.title}</h3>
-          <div className="mt-4 space-y-2 text-sm text-foreground/85">
-            <div className="flex items-center gap-3">
-              <Calendar className="h-3.5 w-3.5 text-sage" />
-              <span className="tracking-wider">{event.day}</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Clock className="h-3.5 w-3.5 text-sage" />
-              <span className="tracking-wider">{event.time}</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-3.5 w-3.5 text-sage" />
-              <div>
-                <p className="tracking-wider">{event.place}</p>
-                <p className="text-xs text-muted-foreground">{event.address}</p>
-              </div>
+  return (
+    <section
+      id="eventos"
+      className="relative overflow-hidden bg-cream px-6 py-24 sm:py-32"
+      aria-labelledby="event-details-title"
+    >
+      <div className="absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,#efe6dc_0%,#f7f3ec_60%,#f7f3ec_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-56 bg-[linear-gradient(180deg,#f7f3ec_0%,#e8dacf_100%)]" />
+
+      <div className="relative z-10 mx-auto flex min-h-[170dvh] w-full max-w-5xl flex-col justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.8 }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          <Sparkles className="mx-auto h-7 w-7 text-rose" strokeWidth={1.1} />
+          <p className="mt-4 text-[0.7rem] uppercase tracking-luxury text-sage-deep">
+            {text.eyebrow}
+          </p>
+          <h2
+            id="event-details-title"
+            className="mt-4 font-display text-6xl font-light leading-none text-foreground sm:text-7xl"
+          >
+            {text.title}
+          </h2>
+          <div className="sage-divider mx-auto mt-7 w-28" />
+          <p className="mx-auto mt-7 max-w-xl text-sm leading-7 tracking-wider text-muted-foreground">
+            {text.intro}
+          </p>
+        </motion.div>
+
+        <div className="relative mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_5rem_1fr] md:gap-6">
+          <div className="absolute left-1/2 top-6 hidden h-[calc(100%-3rem)] w-px -translate-x-1/2 bg-sage md:block" />
+
+          <EventMomentCard event={text.moments[0]} saveLabel={text.save} align="left" />
+
+          <div className="relative hidden items-center justify-center md:flex">
+            <div className="flex h-full flex-col items-center justify-between py-12">
+              <span className="h-5 w-5 rounded-full border border-sage bg-cream" />
+              <HeartHandshake className="h-8 w-8 bg-cream text-sage-deep" strokeWidth={1.1} />
+              <span className="h-5 w-5 rounded-full border border-sage bg-cream" />
             </div>
           </div>
-          <div className="mt-5 grid grid-cols-2 gap-2">
-            <a
-              href={buildCalUrl(event)}
-              target="_blank"
-              rel="noreferrer"
-              className="border border-sage py-3 text-center text-[0.6rem] uppercase tracking-luxury text-sage-deep transition-colors hover:bg-sage hover:text-primary-foreground"
-            >
-              Save the Date
-            </a>
-            <a
-              href={event.map}
-              target="_blank"
-              rel="noreferrer"
-              className="border border-sage bg-sage py-3 text-center text-[0.6rem] uppercase tracking-luxury text-primary-foreground transition-colors hover:bg-sage-deep"
-            >
-              {directions}
-            </a>
-          </div>
+
+          <EventMomentCard event={text.moments[1]} saveLabel={text.save} align="right" />
         </div>
-      </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mx-auto mt-16 max-w-xl border border-sage bg-[#f8f2ea] p-7 text-center shadow-[0_28px_80px_-58px_oklch(0.28_0.02_140)] md:mt-24"
+        >
+          <MapPinCheck className="mx-auto h-7 w-7 text-sage-deep" strokeWidth={1.2} />
+          <p className="mt-4 text-[0.68rem] uppercase tracking-luxury text-sage-deep">
+            {text.locationTitle}
+          </p>
+          <p className="mx-auto mt-4 max-w-md font-serif text-2xl font-light italic leading-snug text-foreground">
+            {text.locationText}
+          </p>
+          <a
+            href="#rsvp"
+            className="mt-7 inline-flex border border-sage bg-sage px-6 py-3 text-[0.65rem] uppercase tracking-luxury text-primary-foreground transition-colors hover:bg-sage-deep"
+          >
+            {text.rsvp}
+          </a>
+        </motion.div>
+      </div>
     </section>
   );
 }
 
-export function Ceremony({ language }: { language: Language }) {
-  const text = events[language];
+function EventMomentCard({
+  event,
+  saveLabel,
+  align,
+}: {
+  event: EventMoment;
+  saveLabel: string;
+  align: "left" | "right";
+}) {
   return (
-    <EventSection
-      event={text.ceremony}
-      subtitle={text.ceremonySubtitle}
-      directions={text.directions}
-    />
-  );
-}
+    <motion.article
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.85, delay: align === "right" ? 0.2 : 0 }}
+      className={`border border-sage bg-card shadow-[0_34px_90px_-64px_oklch(0.28_0.02_140)] ${
+        align === "right" ? "md:mt-28" : ""
+      }`}
+    >
+      <img src={event.image} alt={event.title} className="aspect-[1.08/1] w-full object-cover" />
+      <div className="p-6 sm:p-7">
+        <p className="text-[0.65rem] uppercase tracking-luxury text-sage-deep">{event.kind}</p>
+        <h3 className="mt-3 font-serif text-3xl font-light italic text-foreground">
+          {event.title}
+        </h3>
 
-export function Celebration({ language }: { language: Language }) {
-  const text = events[language];
-  return (
-    <EventSection
-      event={text.celebration}
-      subtitle={text.celebrationSubtitle}
-      directions={text.directions}
-    />
+        <div className="mt-6 space-y-3 text-sm tracking-wider text-foreground">
+          <div className="flex items-center gap-3">
+            <Calendar className="h-4 w-4 text-sage" strokeWidth={1.3} />
+            <span>{event.day}</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <Clock className="h-4 w-4 text-sage" strokeWidth={1.3} />
+            <span>{event.time}</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <MapPinCheck className="mt-0.5 h-4 w-4 text-sage" strokeWidth={1.3} />
+            <span>{event.calendarDetails}</span>
+          </div>
+        </div>
+
+        <p className="mt-6 border-l border-sage pl-4 text-sm leading-7 text-muted-foreground">
+          {event.note}
+        </p>
+
+        <a
+          href={buildCalUrl(event)}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-7 inline-flex border border-sage px-5 py-3 text-[0.62rem] uppercase tracking-luxury text-sage-deep transition-colors hover:bg-sage hover:text-primary-foreground"
+        >
+          {saveLabel}
+        </a>
+      </div>
+    </motion.article>
   );
 }

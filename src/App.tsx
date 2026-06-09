@@ -1,8 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { BibleVerse } from "@/components/wedding/BibleVerse";
-import { Celebration, Ceremony } from "@/components/wedding/EventDetails";
 import { Countdown } from "@/components/wedding/Countdown";
 import { DressCode } from "@/components/wedding/DressCode";
+import { EventDetails } from "@/components/wedding/EventDetails";
 import { Gifts } from "@/components/wedding/Gifts";
 import { Hero } from "@/components/wedding/Hero";
 import { InvitationCover } from "@/components/wedding/InvitationCover";
@@ -60,8 +60,7 @@ export default function App() {
       >
         <Hero language={language} onLanguageChange={setLanguage} />
         <Countdown language={language} />
-        <Ceremony language={language} />
-        <Celebration language={language} />
+        <EventDetails language={language} />
         <BibleVerse language={language} />
         <PartyMusic language={language} />
         <DressCode language={language} />
