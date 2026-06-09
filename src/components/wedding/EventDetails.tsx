@@ -19,10 +19,9 @@ const events = {
     title: "Ceremonia & celebracion",
     intro:
       "Dos momentos, una misma promesa. Queremos vivir cada instante contigo, desde el si ante Dios hasta el abrazo alegre de la celebracion.",
-    locationTitle: "Ubicacion reservada",
-    locationText:
-      "La ubicacion exacta sera confirmada luego de recibir tu confirmacion de asistencia.",
-    rsvp: "Confirmar asistencia",
+    confirmTitle: "Confirmacion mas abajo",
+    confirmText: "Al final de la invitacion encontraras el formulario para confirmar tu asistencia.",
+    rsvp: "Ir a confirmacion",
     save: "Agendar",
     moments: [
       {
@@ -56,9 +55,9 @@ const events = {
     title: "Ceremony & celebration",
     intro:
       "Two moments, one promise. We want to share every part of the day with you, from our blessing before God to the joy of the celebration.",
-    locationTitle: "Reserved location",
-    locationText: "The exact location will be confirmed after your attendance is received.",
-    rsvp: "Confirm attendance",
+    confirmTitle: "Confirmation below",
+    confirmText: "You will find the attendance form near the end of the invitation.",
+    rsvp: "Go to confirmation",
     save: "Save",
     moments: [
       {
@@ -155,12 +154,12 @@ export function EventDetails({ language }: { language: Language }) {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mx-auto mt-16 max-w-xl border border-sage bg-[#f8f2ea] p-7 text-center shadow-[0_28px_80px_-58px_oklch(0.28_0.02_140)] md:mt-24"
         >
-          <MapPinCheck className="mx-auto h-7 w-7 text-sage-deep" strokeWidth={1.2} />
+          <HeartHandshake className="mx-auto h-7 w-7 text-sage-deep" strokeWidth={1.2} />
           <p className="mt-4 text-[0.68rem] uppercase tracking-luxury text-sage-deep">
-            {text.locationTitle}
+            {text.confirmTitle}
           </p>
           <p className="mx-auto mt-4 max-w-md font-serif text-2xl font-light italic leading-snug text-foreground">
-            {text.locationText}
+            {text.confirmText}
           </p>
           <a
             href="#rsvp"
