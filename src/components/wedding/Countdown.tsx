@@ -51,45 +51,47 @@ export function Countdown({ language }: { language: Language }) {
   ];
 
   return (
-    <section className="snap-section relative flex flex-col items-center justify-center overflow-hidden px-4 py-16 sm:px-6 sm:py-20">
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 text-[0.7rem] uppercase tracking-luxury text-sage-deep"
-      >
-        {text.eyebrow}
-      </motion.p>
-
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="relative z-10 mt-4 text-center font-serif text-4xl font-light italic sm:text-5xl"
-      >
-        {text.title}
-        <br />
-        {text.titleSecond}
-      </motion.h2>
-
+    <section className="snap-section relative flex items-center justify-center overflow-hidden px-4 py-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.9, delay: 0.25 }}
-        className="relative mt-8 w-[min(1120px,calc(100vw-1rem))] sm:mt-10"
+        transition={{ duration: 0.9 }}
+        className="relative h-[min(980px,calc(100dvh-3rem))] aspect-[1536/2688] max-w-[calc(100vw-1rem)]"
       >
         <img
-          src="/assets/images/Cuenta%20Regresiva.png"
+          src="/assets/images/Cuenta%20regresiva%202.png"
           alt=""
-          className="pointer-events-none block aspect-[2048/1121] w-full select-none object-contain"
+          className="pointer-events-none block h-full w-full select-none object-contain"
           aria-hidden="true"
         />
 
-        <div className="absolute inset-x-[24%] inset-y-[19%] flex items-center justify-center sm:inset-x-[25%] sm:inset-y-[20%]">
-          <div className="grid w-full max-w-[560px] grid-cols-4 gap-1.5 sm:gap-3">
+        <div className="absolute inset-x-[10%] top-[20%] text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-[clamp(0.55rem,1.5vw,0.7rem)] uppercase tracking-luxury text-sage-deep"
+          >
+            {text.eyebrow}
+          </motion.p>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="mt-3 font-serif text-[clamp(2rem,6vw,4.5rem)] font-light italic leading-[0.95]"
+          >
+            {text.title}
+            <br />
+            {text.titleSecond}
+          </motion.h2>
+        </div>
+
+        <div className="absolute inset-x-[18%] top-[40.2%] flex h-[18%] items-center justify-center">
+          <div className="grid w-full grid-cols-4 gap-1.5 sm:gap-3">
             {items.map((it, i) => (
               <motion.div
                 key={it.label}
@@ -99,15 +101,15 @@ export function Countdown({ language }: { language: Language }) {
                 transition={{ duration: 0.6, delay: 0.45 + i * 0.1 }}
                 className="flex min-w-0 flex-col items-center"
               >
-                <div className="flex aspect-square w-full max-w-[92px] items-center justify-center rounded-sm bg-white/55 shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
+                <div className="flex aspect-square w-full max-w-[88px] items-center justify-center rounded-sm bg-white/50 shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
                   <span
                     suppressHydrationWarning
-                    className="font-serif text-[clamp(1.25rem,5.2vw,3rem)] font-light leading-none text-foreground tabular-nums"
+                    className="font-serif text-[clamp(1.05rem,4.6vw,2.6rem)] font-light leading-none text-foreground tabular-nums"
                   >
                     {mounted ? String(it.value).padStart(2, "0") : "00"}
                   </span>
                 </div>
-                <span className="mt-2 max-w-full text-center text-[clamp(0.42rem,1.55vw,0.65rem)] uppercase tracking-[0.22em] text-muted-foreground sm:mt-3 sm:tracking-luxury">
+                <span className="mt-2 max-w-full text-center text-[clamp(0.36rem,1.25vw,0.6rem)] uppercase tracking-[0.16em] text-muted-foreground sm:mt-3 sm:tracking-[0.28em]">
                   {it.label}
                 </span>
               </motion.div>
