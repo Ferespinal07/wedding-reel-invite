@@ -51,13 +51,13 @@ export function Countdown({ language }: { language: Language }) {
   ];
 
   return (
-    <section className="snap-section relative flex flex-col items-center justify-center px-6 py-20">
+    <section className="snap-section relative flex flex-col items-center justify-center overflow-hidden px-4 py-16 sm:px-6 sm:py-20">
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-[0.7rem] uppercase tracking-luxury text-sage-deep"
+        className="relative z-10 text-[0.7rem] uppercase tracking-luxury text-sage-deep"
       >
         {text.eyebrow}
       </motion.p>
@@ -67,39 +67,54 @@ export function Countdown({ language }: { language: Language }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="mt-4 text-center font-serif text-4xl font-light italic"
+        className="relative z-10 mt-4 text-center font-serif text-4xl font-light italic sm:text-5xl"
       >
         {text.title}
         <br />
         {text.titleSecond}
       </motion.h2>
 
-      <div className="sage-divider my-10 w-32" />
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9, delay: 0.25 }}
+        className="relative mt-8 w-[min(1120px,calc(100vw-1rem))] sm:mt-10"
+      >
+        <img
+          src="/assets/images/Cuenta%20Regresiva.png"
+          alt=""
+          className="pointer-events-none block aspect-[2048/1121] w-full select-none object-contain"
+          aria-hidden="true"
+        />
 
-      <div className="grid w-full max-w-sm grid-cols-4 gap-2">
-        {items.map((it, i) => (
-          <motion.div
-            key={it.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
-            className="flex flex-col items-center"
-          >
-            <div className="glass flex h-20 w-full items-center justify-center rounded-sm">
-              <span
-                suppressHydrationWarning
-                className="font-serif text-3xl font-light text-foreground tabular-nums"
+        <div className="absolute inset-x-[24%] inset-y-[19%] flex items-center justify-center sm:inset-x-[25%] sm:inset-y-[20%]">
+          <div className="grid w-full max-w-[560px] grid-cols-4 gap-1.5 sm:gap-3">
+            {items.map((it, i) => (
+              <motion.div
+                key={it.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.45 + i * 0.1 }}
+                className="flex min-w-0 flex-col items-center"
               >
-                {mounted ? String(it.value).padStart(2, "0") : "00"}
-              </span>
-            </div>
-            <span className="mt-3 text-[0.6rem] uppercase tracking-luxury text-muted-foreground">
-              {it.label}
-            </span>
-          </motion.div>
-        ))}
-      </div>
+                <div className="flex aspect-square w-full max-w-[92px] items-center justify-center rounded-sm bg-white/55 shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
+                  <span
+                    suppressHydrationWarning
+                    className="font-serif text-[clamp(1.25rem,5.2vw,3rem)] font-light leading-none text-foreground tabular-nums"
+                  >
+                    {mounted ? String(it.value).padStart(2, "0") : "00"}
+                  </span>
+                </div>
+                <span className="mt-2 max-w-full text-center text-[clamp(0.42rem,1.55vw,0.65rem)] uppercase tracking-[0.22em] text-muted-foreground sm:mt-3 sm:tracking-luxury">
+                  {it.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }
