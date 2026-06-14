@@ -41,8 +41,7 @@ const events = {
         day: "Sabado, 18 de Julio",
         time: "Al finalizar la ceremonia",
         note: "Despues de la ceremonia, brindaremos, cenaremos y bailaremos para celebrar el amor.",
-        image:
-          "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=80&auto=format&fit=crop",
+        image: "/assets/images/Celebracion.png",
         calendarTitle: "Recepcion & Fiesta - Junior & Omaisy",
         calendarDetails:
           "La ubicacion exacta sera compartida luego de confirmar asistencia.",
@@ -75,8 +74,7 @@ const events = {
         day: "Saturday, July 18",
         time: "After the ceremony",
         note: "After the ceremony, we will toast, dine, and dance in celebration of love.",
-        image:
-          "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=80&auto=format&fit=crop",
+        image: "/assets/images/Celebracion.png",
         calendarTitle: "Reception & Party - Junior & Omaisy",
         calendarDetails: "The exact location will be shared after confirming attendance.",
       },
