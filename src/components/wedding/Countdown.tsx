@@ -103,13 +103,18 @@ export function Countdown({ language }: { language: Language }) {
                 transition={{ duration: 0.6, delay: 0.45 + i * 0.1 }}
                 className="flex flex-col items-center"
               >
-                <div className="flex aspect-square w-full items-center justify-center rounded-sm bg-transparent shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
+                <div className="relative flex aspect-square w-full items-center justify-center rounded-sm bg-transparent shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
                   <span
                     suppressHydrationWarning
-                    className="font-serif text-4xl font-light leading-none text-foreground tabular-nums sm:text-5xl md:text-6xl"
+                    className="font-serif text-4xl font-medium leading-none text-foreground tabular-nums sm:text-5xl md:text-6xl"
                   >
                     {mounted ? String(it.value).padStart(2, "0") : "00"}
                   </span>
+                  {i < 3 && (
+                    <span className="absolute -right-1.5 top-1/2 -translate-y-1/2 translate-x-1/2 font-serif text-3xl font-medium text-foreground sm:-right-3 sm:text-4xl md:text-5xl">
+                      :
+                    </span>
+                  )}
                 </div>
                 <span className="mt-3 max-w-full text-center text-[0.55rem] uppercase tracking-widest text-muted-foreground sm:text-[0.65rem] sm:tracking-[0.2em]">
                   {it.label}
