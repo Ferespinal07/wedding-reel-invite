@@ -103,7 +103,7 @@ export function Countdown({ language }: { language: Language }) {
                 transition={{ duration: 0.6, delay: 0.45 + i * 0.1 }}
                 className="flex flex-col items-center"
               >
-                <div className="flex aspect-square w-full items-center justify-center rounded-sm bg-white/10 shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
+                <div className="flex aspect-square w-full items-center justify-center rounded-sm bg-transparent shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
                   <span
                     suppressHydrationWarning
                     className="font-serif text-4xl font-light leading-none text-foreground tabular-nums sm:text-5xl md:text-6xl"
