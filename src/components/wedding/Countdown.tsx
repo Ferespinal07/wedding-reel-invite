@@ -66,7 +66,7 @@ export function Countdown({ language }: { language: Language }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9 }}
-        className="relative z-10 flex w-full max-w-4xl flex-col items-center justify-center px-6 pb-32 pt-8 sm:pb-40 md:pb-56"
+        className="relative z-10 flex w-full max-w-4xl flex-col items-center justify-center px-6 pb-48 pt-4 sm:pb-64 md:pb-80"
       >
         <div className="text-center">
           <motion.p
@@ -103,7 +103,7 @@ export function Countdown({ language }: { language: Language }) {
                 transition={{ duration: 0.6, delay: 0.45 + i * 0.1 }}
                 className="flex flex-col items-center"
               >
-                <div className="flex aspect-square w-full items-center justify-center rounded-sm bg-white/20 shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
+                <div className="flex aspect-square w-full items-center justify-center rounded-sm bg-white/10 shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
                   <span
                     suppressHydrationWarning
                     className="font-serif text-4xl font-light leading-none text-foreground tabular-nums sm:text-5xl md:text-6xl"
