@@ -1,6 +1,6 @@
 import type { Language } from "@/App";
 import { motion } from "framer-motion";
-import { Music, Plus } from "lucide-react";
+import { ListMusic, Music, Plus } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -12,6 +12,7 @@ const copy = {
     artist: "Artista",
     button: "Agregar a la playlist",
     toast: "Gracias por tu sugerencia!",
+    viewList: "Ver listado",
   },
   en: {
     title: "Party music",
@@ -20,6 +21,7 @@ const copy = {
     artist: "Artist",
     button: "Add to playlist",
     toast: "Thanks for your suggestion!",
+    viewList: "View list",
   },
 };
 
@@ -29,10 +31,22 @@ export function PartyMusic({ language }: { language: Language }) {
   const [list, setList] = useState<{ song: string; artist: string }[]>([]);
   const text = copy[language];
 
-  function add(e: React.FormEvent) {
+  async function add(e: React.FormEvent) {
     e.preventDefault();
     if (!song.trim()) return;
     setList((l) => [{ song: song.trim(), artist: artist.trim() }, ...l]);
+
+    try {
+      // Reemplaza TU_WEBHOOK_URL_AQUI con tu URL de SheetDB o Formspree
+      await fetch("https://sheetdb.io/api/v1/fwxg5zkoh7ruj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cancion: song.trim(), artista: artist.trim() }),
+      });
+    } catch (error) {
+      console.error("Error guardando la cancion:", error);
+    }
+
     setSong("");
     setArtist("");
     toast.success(text.toast);
@@ -69,13 +83,24 @@ export function PartyMusic({ language }: { language: Language }) {
           placeholder={text.artist}
           className="w-full border-b border-sage/40 bg-transparent py-2 text-sm tracking-wider text-foreground outline-none focus:border-sage"
         />
-        <button
-          type="submit"
-          className="flex w-full items-center justify-center gap-2 border border-sage bg-sage py-3 text-[0.65rem] uppercase tracking-luxury text-primary-foreground transition-colors hover:bg-sage-deep"
-        >
-          <Plus className="h-3.5 w-3.5" />
-          {text.button}
-        </button>
+        <div className="mt-4 flex flex-col gap-3">
+          <button
+            type="submit"
+            className="flex w-full items-center justify-center gap-2 border border-sage bg-sage py-3 text-[0.65rem] uppercase tracking-luxury text-primary-foreground transition-colors hover:bg-sage-deep"
+          >
+            <Plus className="h-3.5 w-3.5" />
+            {text.button}
+          </button>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1ad8VlsXowPtQpEcvwWtOv8UfzArjcYcZ7j6spptm8bg/edit?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+            className="flex w-full items-center justify-center gap-2 border border-sage/40 bg-transparent py-3 text-[0.65rem] uppercase tracking-luxury text-sage-deep transition-colors hover:border-sage"
+          >
+            <ListMusic className="h-3.5 w-3.5" />
+            {text.viewList}
+          </a>
+        </div>
       </form>
 
       {list.length > 0 && (
