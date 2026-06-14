@@ -103,7 +103,7 @@ export function RSVP({ language }: { language: Language }) {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="glass mt-10 rounded-sm p-8 text-center"
+          className="glass mx-auto mt-10 w-full max-w-md rounded-sm p-8 text-center"
         >
           <p className="font-serif text-2xl italic text-sage-deep">{text.confirmed}</p>
           <p className="mt-3 text-xs tracking-wider text-muted-foreground">{text.seeYou}</p>
@@ -115,7 +115,7 @@ export function RSVP({ language }: { language: Language }) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
           onSubmit={onSubmit}
-          className="mt-10 space-y-7"
+          className="mx-auto mt-10 w-full max-w-md space-y-7"
         >
           <div>
             <label className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">
@@ -126,7 +126,7 @@ export function RSVP({ language }: { language: Language }) {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-2 w-full border-b border-sage/40 bg-transparent py-2 text-sm tracking-wider text-foreground outline-none focus:border-sage"
+              className="mt-2 w-full border-b border-sage/40 bg-transparent py-2 text-base tracking-wider text-foreground outline-none focus:border-sage sm:text-sm"
             />
           </div>
 
@@ -160,7 +160,7 @@ export function RSVP({ language }: { language: Language }) {
               rows={2}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="mt-2 w-full resize-none border-b border-sage/40 bg-transparent py-2 text-sm tracking-wider text-foreground outline-none focus:border-sage"
+              className="mt-2 w-full resize-none border-b border-sage/40 bg-transparent py-2 text-base tracking-wider text-foreground outline-none focus:border-sage sm:text-sm"
             />
           </div>
 

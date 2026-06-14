@@ -42,6 +42,8 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
         playsInline
         preload="auto"
       />
+      
+      <div className="absolute inset-0 bg-cream/30" />
 
       <button
         type="button"
@@ -57,7 +59,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-[0.7rem] uppercase tracking-luxury text-sage-deep drop-shadow-[0_1px_12px_oklch(0.97_0.008_90_/_0.95)]"
+          className="text-[0.7rem] font-medium uppercase tracking-luxury text-sage-deep drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]"
         >
           {t.eyebrow}
         </motion.p>
@@ -89,7 +91,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           className="mt-10 flex items-center gap-4"
         >
           <span className="h-px w-10 bg-sage" />
-          <p className="text-xs tracking-luxury text-foreground drop-shadow-[0_1px_12px_oklch(0.97_0.008_90_/_0.9)]">{t.date}</p>
+          <p className="text-xs font-medium tracking-luxury text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]">{t.date}</p>
           <span className="h-px w-10 bg-sage" />
         </motion.div>
 
@@ -97,12 +99,12 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 2 }}
-          className="mt-8 max-w-xs font-serif text-sm italic leading-relaxed text-foreground drop-shadow-[0_1px_12px_oklch(0.97_0.008_90_/_0.9)]"
+          className="mt-8 max-w-xs font-serif text-base font-medium italic leading-relaxed text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]"
         >
           "{t.verse}
           <br /> {t.verseSecond}"
           <br />
-          <span className="mt-2 inline-block text-[0.65rem] not-italic uppercase tracking-luxury text-sage-deep">
+          <span className="mt-2 inline-block text-[0.65rem] font-medium not-italic uppercase tracking-luxury text-sage-deep drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]">
             {t.reference}
           </span>
         </motion.p>

@@ -8,7 +8,7 @@ const copy = {
     eyebrow: "Regalos",
     title: "Lluvia de sobres",
     message:
-      "Tu compania es nuestro mejor regalo. Si deseas obsequiarnos algo mas, agradecemos tu aporte para nuestra luna de miel.",
+      "El mejor regalo es compartir este dia contigo. Si deseas tener un detalle adicional, agradecemos de corazon tu aporte.",
     copyBtn: "Copiar",
     copiedBtn: "Copiado",
     bankBtn: "Ir al banco",
@@ -35,7 +35,7 @@ const copy = {
     eyebrow: "Gifts",
     title: "Envelope gifts",
     message:
-      "Your company is our best gift. If you would like to give us something more, we would be grateful for a contribution to our honeymoon.",
+      "The best gift is sharing this day with you. If you wish to give us something more, we deeply appreciate your contribution.",
     copyBtn: "Copy",
     copiedBtn: "Copied",
     bankBtn: "Go to bank",
