@@ -7,7 +7,7 @@ const copy = {
   es: {
     eyebrow: "Confirmacion",
     description: "Tu presencia es nuestro mejor regalo. Confirma tu asistencia con anticipacion.",
-    deadline: "Agradecemos confirmar antes del dia 15 del mes de junio.",
+    deadline: "Agradecemos confirmar antes del dia 18 del mes de junio.",
     required: "Por favor indica si asistiras",
     nameRequired: "Por favor escribe tu nombre",
     thanks: "Gracias por confirmar!",
@@ -23,7 +23,7 @@ const copy = {
   en: {
     eyebrow: "Confirmation",
     description: "Your presence is our best gift. Please confirm your attendance in advance.",
-    deadline: "We kindly ask you to confirm before June 15.",
+    deadline: "We kindly ask you to confirm before June 18.",
     required: "Please let us know if you will attend",
     nameRequired: "Please enter your name",
     thanks: "Thanks for confirming!",
