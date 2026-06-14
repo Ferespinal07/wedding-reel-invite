@@ -1,6 +1,7 @@
 import type { Language } from "@/App";
 import { motion } from "framer-motion";
-import { Gift } from "lucide-react";
+import { Check, Copy, ExternalLink, Gift } from "lucide-react";
+import { useState } from "react";
 
 const copy = {
   es: {
@@ -8,21 +9,66 @@ const copy = {
     title: "Lluvia de sobres",
     message:
       "Tu compania es nuestro mejor regalo. Si deseas obsequiarnos algo mas, agradecemos tu aporte para nuestra luna de miel.",
-    savings: "Cuenta de Ahorros - Junior P.",
-    checking: "Cuenta Corriente - Omaisy R.",
+    copyBtn: "Copiar",
+    copiedBtn: "Copiado",
+    bankBtn: "Ir al banco",
+    accounts: [
+      {
+        bank: "Banco BHD",
+        type: "Cuenta de Ahorros",
+        number: "37532840010",
+        name: "Omaisy Gomez",
+        id: "Cédula: 402-0906353-2",
+        link: "https://bhd.com.do",
+      },
+      {
+        bank: "Banco Popular",
+        type: "Cuenta de Ahorros",
+        number: "833123763",
+        name: "Junior Manuel Núñez",
+        id: "Cédula: 402-2439380-7",
+        link: "https://popularenlinea.com",
+      },
+    ],
   },
   en: {
     eyebrow: "Gifts",
     title: "Envelope gifts",
     message:
       "Your company is our best gift. If you would like to give us something more, we would be grateful for a contribution to our honeymoon.",
-    savings: "Savings Account - Junior P.",
-    checking: "Checking Account - Omaisy R.",
+    copyBtn: "Copy",
+    copiedBtn: "Copied",
+    bankBtn: "Go to bank",
+    accounts: [
+      {
+        bank: "Banco BHD",
+        type: "Savings Account",
+        number: "37532840010",
+        name: "Omaisy Gomez",
+        id: "ID: 402-0906353-2",
+        link: "https://bhd.com.do",
+      },
+      {
+        bank: "Banco Popular",
+        type: "Savings Account",
+        number: "833123763",
+        name: "Junior Manuel Núñez",
+        id: "ID: 402-2439380-7",
+        link: "https://popularenlinea.com",
+      },
+    ],
   },
 };
 
 export function Gifts({ language }: { language: Language }) {
   const text = copy[language];
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const handleCopy = (number: string, index: number) => {
+    navigator.clipboard.writeText(number);
+    setCopiedIndex(index);
+    setTimeout(() => setCopiedIndex(null), 2000);
+  };
 
   return (
     <section className="snap-section relative flex flex-col justify-center px-6 py-20">
@@ -52,21 +98,63 @@ export function Gifts({ language }: { language: Language }) {
           "{text.message}"
         </p>
 
-        <div className="mt-6 space-y-4 text-left">
-          <div className="rounded-sm border border-sage/30 bg-cream/50 p-4">
-            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">Banco Popular</p>
-            <p className="mt-2 font-serif text-base tracking-wider text-foreground">
-              0123-4567-8910
-            </p>
-            <p className="text-xs text-muted-foreground">{text.savings}</p>
-          </div>
-          <div className="rounded-sm border border-rose/40 bg-blush/30 p-4">
-            <p className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">BHD Leon</p>
-            <p className="mt-2 font-serif text-base tracking-wider text-foreground">
-              9876-5432-1098
-            </p>
-            <p className="text-xs text-muted-foreground">{text.checking}</p>
-          </div>
+        <div className="mt-8 space-y-4 text-left">
+          {text.accounts.map((acc, i) => (
+            <div
+              key={acc.bank}
+              className={`rounded-sm border p-5 ${
+                i === 0 ? "border-rose/30 bg-blush/20" : "border-sage/30 bg-sage/10"
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <p
+                  className={`text-[0.65rem] font-medium uppercase tracking-luxury ${
+                    i === 0 ? "text-rose/80" : "text-sage-deep"
+                  }`}
+                >
+                  {acc.bank}
+                </p>
+                <p className="text-[0.55rem] uppercase tracking-widest text-muted-foreground">
+                  {acc.type}
+                </p>
+              </div>
+              <p className="mt-2 font-serif text-2xl tracking-wider text-foreground">
+                {acc.number}
+              </p>
+              <div className="mt-3 space-y-1 text-xs text-muted-foreground">
+                <p className="uppercase tracking-wider text-foreground/80">{acc.name}</p>
+                <p className="tracking-wide">{acc.id}</p>
+              </div>
+
+              <div className="mt-5 flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => handleCopy(acc.number, i)}
+                  className={`flex flex-1 items-center justify-center gap-2 border bg-white/40 py-2.5 text-[0.65rem] uppercase tracking-luxury transition-colors hover:bg-white/60 ${
+                    i === 0 ? "border-rose/20 text-rose-deep/80" : "border-sage/20 text-sage-deep/80"
+                  }`}
+                >
+                  {copiedIndex === i ? (
+                    <Check className="h-3.5 w-3.5" />
+                  ) : (
+                    <Copy className="h-3.5 w-3.5" />
+                  )}
+                  {copiedIndex === i ? text.copiedBtn : text.copyBtn}
+                </button>
+                <a
+                  href={acc.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`flex flex-1 items-center justify-center gap-2 border bg-white/40 py-2.5 text-[0.65rem] uppercase tracking-luxury transition-colors hover:bg-white/60 ${
+                    i === 0 ? "border-rose/20 text-rose-deep/80" : "border-sage/20 text-sage-deep/80"
+                  }`}
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                  {text.bankBtn}
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </motion.div>
     </section>
