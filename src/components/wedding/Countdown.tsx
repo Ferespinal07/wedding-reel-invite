@@ -66,7 +66,7 @@ export function Countdown({ language }: { language: Language }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9 }}
-        className="relative z-10 flex w-full max-w-4xl flex-col items-center justify-center px-6 py-20"
+        className="relative z-10 flex w-full max-w-4xl flex-col items-center justify-center px-6 pb-32 pt-8 sm:pb-40 md:pb-56"
       >
         <div className="text-center">
           <motion.p
