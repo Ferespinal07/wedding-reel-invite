@@ -30,8 +30,7 @@ const events = {
         day: "Sabado, 18 de Julio",
         time: "7:00 PM",
         note: "Un momento intimo y solemne para bendecir el inicio de nuestra vida juntos.",
-        image:
-          "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop",
+        image: "/assets/images/Ceremonia.png",
         calendarTitle: "Ceremonia Religiosa - Junior & Omaisy",
         calendarDetails:
           "La ubicacion exacta sera compartida luego de confirmar asistencia.",
@@ -66,8 +65,7 @@ const events = {
         day: "Saturday, July 18",
         time: "7:00 PM",
         note: "An intimate and sacred moment to bless the beginning of our life together.",
-        image:
-          "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop",
+        image: "/assets/images/Ceremonia.png",
         calendarTitle: "Religious Ceremony - Junior & Omaisy",
         calendarDetails: "The exact location will be shared after confirming attendance.",
       },
@@ -188,11 +186,11 @@ function EventMomentCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.85, delay: align === "right" ? 0.2 : 0 }}
-      className={`border border-sage bg-card shadow-[0_34px_90px_-64px_oklch(0.28_0.02_140)] ${
+      className={`overflow-hidden rounded-t-full border border-sage bg-card shadow-[0_34px_90px_-64px_oklch(0.28_0.02_140)] ${
         align === "right" ? "md:mt-28" : ""
       }`}
     >
-      <img src={event.image} alt={event.title} className="aspect-[1.08/1] w-full object-cover" />
+      <img src={event.image} alt={event.title} className="aspect-[4/5] w-full object-cover" />
       <div className="p-6 sm:p-7">
         <p className="text-[0.65rem] uppercase tracking-luxury text-sage-deep">{event.kind}</p>
         <h3 className="mt-3 font-serif text-3xl font-light italic text-foreground">
