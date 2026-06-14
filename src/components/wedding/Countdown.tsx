@@ -69,15 +69,15 @@ export function Countdown({ language }: { language: Language }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9 }}
-        className="relative h-full w-full max-w-5xl"
+        className="relative z-10 flex w-full max-w-4xl flex-col items-center justify-center px-6 py-20"
       >
-        <div className="absolute inset-x-[10%] top-[20%] text-center">
+        <div className="text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-[clamp(0.55rem,1.5vw,0.7rem)] uppercase tracking-luxury text-sage-deep"
+            className="text-[0.7rem] uppercase tracking-luxury text-sage-deep"
           >
             {text.eyebrow}
           </motion.p>
@@ -87,7 +87,7 @@ export function Countdown({ language }: { language: Language }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.25 }}
-            className="mt-3 font-serif text-[clamp(2rem,6vw,4.5rem)] font-light italic leading-[0.95]"
+            className="mt-3 font-serif text-4xl font-light italic leading-[1.1] sm:text-5xl md:text-6xl"
           >
             {text.title}
             <br />
@@ -95,8 +95,8 @@ export function Countdown({ language }: { language: Language }) {
           </motion.h2>
         </div>
 
-        <div className="absolute inset-x-[18%] top-[40.2%] flex h-[18%] items-center justify-center">
-          <div className="grid w-full grid-cols-4 gap-1.5 sm:gap-3">
+        <div className="mt-10 flex w-full items-center justify-center sm:mt-14">
+          <div className="grid w-full max-w-lg grid-cols-4 gap-3 sm:max-w-2xl sm:gap-6">
             {items.map((it, i) => (
               <motion.div
                 key={it.label}
@@ -104,17 +104,17 @@ export function Countdown({ language }: { language: Language }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.45 + i * 0.1 }}
-                className="flex min-w-0 flex-col items-center"
+                className="flex flex-col items-center"
               >
-                <div className="flex aspect-square w-full max-w-[88px] items-center justify-center rounded-sm bg-white/50 shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
+                <div className="flex aspect-square w-full items-center justify-center rounded-sm bg-white/50 shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
                   <span
                     suppressHydrationWarning
-                    className="font-serif text-[clamp(1.05rem,4.6vw,2.6rem)] font-light leading-none text-foreground tabular-nums"
+                    className="font-serif text-3xl font-light leading-none text-foreground tabular-nums sm:text-4xl md:text-5xl"
                   >
                     {mounted ? String(it.value).padStart(2, "0") : "00"}
                   </span>
                 </div>
-                <span className="mt-2 max-w-full text-center text-[clamp(0.36rem,1.25vw,0.6rem)] uppercase tracking-[0.16em] text-muted-foreground sm:mt-3 sm:tracking-[0.28em]">
+                <span className="mt-3 max-w-full text-center text-[0.55rem] uppercase tracking-widest text-muted-foreground sm:text-[0.65rem] sm:tracking-[0.2em]">
                   {it.label}
                 </span>
               </motion.div>
