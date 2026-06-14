@@ -70,7 +70,7 @@ export function Tips({ language }: { language: Language }) {
         className="text-center"
       >
         <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">{text.eyebrow}</p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">{text.title}</h2>
+        <h2 className="mt-3 font-display text-5xl font-light leading-none text-foreground sm:text-6xl">{text.title}</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
       </motion.div>
 

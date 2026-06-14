@@ -89,7 +89,7 @@ export function RSVP({ language }: { language: Language }) {
         className="text-center"
       >
         <p className="text-[0.7rem] uppercase tracking-luxury text-sage-deep">{text.eyebrow}</p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">R.S.V.P</h2>
+        <h2 className="mt-3 font-display text-5xl font-light leading-none text-foreground sm:text-6xl">R.S.V.P</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
         <p className="mx-auto mt-4 max-w-xs text-xs leading-relaxed tracking-wider text-muted-foreground">
           {text.description}

@@ -60,7 +60,7 @@ export function DressCode({ language }: { language: Language }) {
           <p className="mt-4 text-[0.7rem] uppercase tracking-luxury text-sage-deep">
             {text.eyebrow}
           </p>
-          <h2 className="mt-3 font-serif text-5xl font-light italic text-foreground">
+          <h2 className="mt-3 font-display text-5xl font-light leading-none text-foreground sm:text-6xl">
             {text.title}
           </h2>
           <div className="sage-divider mx-auto mt-6 w-28" />

@@ -41,7 +41,7 @@ export function PartyMusic({ language }: { language: Language }) {
       await fetch("https://sheetdb.io/api/v1/fwxg5zkoh7ruj", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cancion: song.trim(), artista: artist.trim() }),
+        body: JSON.stringify({ Cancion: song.trim(), Artista: artist.trim() }),
       });
     } catch (error) {
       console.error("Error guardando la cancion:", error);
@@ -63,7 +63,7 @@ export function PartyMusic({ language }: { language: Language }) {
       >
         <Music className="mx-auto h-6 w-6 text-sage" strokeWidth={1.2} />
         <p className="mt-3 text-[0.7rem] uppercase tracking-luxury text-sage-deep">Playlist</p>
-        <h2 className="mt-3 font-serif text-4xl font-light italic">{text.title}</h2>
+        <h2 className="mt-3 font-display text-5xl font-light leading-none text-foreground sm:text-6xl">{text.title}</h2>
         <div className="sage-divider mx-auto mt-6 w-24" />
         <p className="mx-auto mt-4 max-w-xs text-xs leading-relaxed text-muted-foreground">
           {text.description}
