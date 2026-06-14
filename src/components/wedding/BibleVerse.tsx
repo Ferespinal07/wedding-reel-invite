@@ -27,21 +27,20 @@ export function BibleVerse({ language }: { language: Language }) {
           backgroundImage: "url(/assets/images/Versiculo.png)",
         }}
       />
-      <div className="absolute inset-0 sage-overlay" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2 }}
-        className="relative z-10 max-w-md text-center text-white"
+        className="relative z-10 mx-auto max-w-xs px-4 text-center text-foreground sm:max-w-sm"
       >
-        <p className="text-[0.7rem] uppercase tracking-luxury text-blush">{text.eyebrow}</p>
-        <div className="mx-auto my-6 h-px w-14 bg-white/60" />
+        <p className="text-[0.75rem] font-semibold uppercase tracking-luxury text-sage-deep drop-shadow-sm">{text.eyebrow}</p>
+        <div className="mx-auto my-6 h-px w-14 bg-sage/60" />
         <p className="font-serif text-2xl font-light leading-snug italic sm:text-3xl">
           "{text.verse}"
         </p>
-        <p className="mt-8 text-[0.7rem] uppercase tracking-luxury text-white/80">
+        <p className="mt-8 text-[0.75rem] font-medium uppercase tracking-luxury text-sage-deep drop-shadow-sm">
           {text.reference}
         </p>
       </motion.div>
