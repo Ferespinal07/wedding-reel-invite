@@ -20,21 +20,30 @@ export function BibleVerse({ language }: { language: Language }) {
   const text = copy[language];
 
   return (
-    <section className="snap-section relative flex min-h-[90dvh] w-full items-center justify-center bg-[url('/assets/images/Versiculo.png')] bg-cover bg-center bg-no-repeat md:min-h-[100dvh]">
-      {/* Si el texto queda muy arriba o muy abajo respecto al marco de tu imagen, puedes agregar mt-10 o mb-10 en la clase de abajo para ajustarlo */}
+    <section className="snap-section relative flex items-center justify-center overflow-hidden px-6 py-20">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url(/assets/images/Versiculo.png)",
+        }}
+      />
+      <div className="absolute inset-0 sage-overlay" />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="relative z-10 mx-auto max-w-xl px-8 text-center"
+        transition={{ duration: 1.2 }}
+        className="relative z-10 max-w-md text-center text-white"
       >
-        <p className="font-serif text-2xl font-light italic leading-relaxed text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] sm:text-3xl md:text-4xl">
+        <p className="text-[0.7rem] uppercase tracking-luxury text-blush">{text.eyebrow}</p>
+        <div className="mx-auto my-6 h-px w-14 bg-white/60" />
+        <p className="font-serif text-2xl font-light leading-snug italic sm:text-3xl">
           "{text.verse}"
         </p>
-        <span className="mt-6 block font-display text-sm uppercase tracking-[0.2em] text-sage-deep drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] sm:text-base">
+        <p className="mt-8 text-[0.7rem] uppercase tracking-luxury text-white/80">
           {text.reference}
-        </span>
+        </p>
       </motion.div>
     </section>
   );
