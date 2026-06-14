@@ -129,7 +129,7 @@ export function DressCode({ language }: { language: Language }) {
 
               <div className="-mx-7 mt-10 grid grid-cols-[0.65fr_1fr] items-center gap-5 bg-[#eee8dd] px-7 py-9 text-left sm:gap-8">
                 <div className="relative mx-auto w-full max-w-[120px]">
-                  <img src="/assets/images/Outfit 1.png" alt="Outfit 1" className="aspect-[3/4] w-full rounded-t-full rounded-b-3xl object-cover shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)] border-4 border-[#f6f2eb]" />
+                  <img src="/assets/images/Outfit1.png" alt="Outfit1" className="aspect-[3/4] w-full rounded-t-full rounded-b-3xl object-cover shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)] border-4 border-[#f6f2eb]" />
                 </div>
                 <p className="text-[0.95rem] leading-relaxed tracking-wide text-foreground/75">
                   {text.elegantLooks}
@@ -146,7 +146,7 @@ export function DressCode({ language }: { language: Language }) {
                   </p>
                 </div>
                 <div className="relative mx-auto w-full max-w-[120px]">
-                  <img src="/assets/images/Outfit 2.png" alt="Outfit 2" className="aspect-[3/4] w-full rounded-t-full rounded-b-3xl object-cover shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)] border-4 border-[#eee8dd]" />
+                  <img src="/assets/images/Outfit2.png" alt="Outfit2" className="aspect-[3/4] w-full rounded-t-full rounded-b-3xl object-cover shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)] border-4 border-[#eee8dd]" />
                 </div>
               </div>
             </div>
