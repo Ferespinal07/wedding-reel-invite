@@ -34,7 +34,15 @@ export function InvitationCover({ isOpening, onOpen }: InvitationCoverProps) {
         initial={false}
         animate={isOpening ? { scale: 1.08, opacity: 0 } : { scale: 1, opacity: 1 }}
         transition={{ duration: 0.55, ease: "easeInOut" }}
-      />
+      >
+        <motion.span
+          animate={{ scale: [1, 1.08, 1], opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-14 left-1/2 w-max -translate-x-1/2 font-serif text-2xl italic tracking-wide text-sage-deep drop-shadow-sm sm:-bottom-16"
+        >
+          Tocar para abrir
+        </motion.span>
+      </motion.button>
     </section>
   );
 }
