@@ -14,7 +14,6 @@ const copy = {
     verseSecond: "que no lo separe el hombre.",
     reference: "Marcos 10:9",
     scroll: "Desliza",
-    magic: "Siente la magia...",
     languageLabel: "Cambiar idioma",
   },
   en: {
@@ -24,7 +23,6 @@ const copy = {
     verseSecond: "let no one separate.",
     reference: "Mark 10:9",
     scroll: "Scroll",
-    magic: "Feel the magic...",
     languageLabel: "Change language",
   },
 };
@@ -115,25 +113,16 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2.4 }}
-        className="absolute bottom-6 flex flex-col items-center gap-4"
+        className="absolute bottom-8 flex flex-col items-center gap-2"
         >
-        <motion.p
-          animate={{ scale: [1, 1.08, 1] }}
-          transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-          className="font-serif text-2xl font-light italic text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]"
-        >
-          {t.magic}
-        </motion.p>
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[0.6rem] uppercase tracking-luxury text-foreground drop-shadow-[0_1px_10px_oklch(0.97_0.008_90_/_0.85)]">
-            {t.scroll}
-          </span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="h-8 w-px bg-sage"
-          />
-        </div>
+        <span className="text-[0.6rem] uppercase tracking-luxury text-foreground drop-shadow-[0_1px_10px_oklch(0.97_0.008_90_/_0.85)]">
+          {t.scroll}
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="h-8 w-px bg-sage"
+        />
         </motion.div>
       </div>
     </section>
