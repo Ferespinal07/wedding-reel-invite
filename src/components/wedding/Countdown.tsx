@@ -57,14 +57,9 @@ export function Countdown({ language }: { language: Language }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9 }}
-        className="relative h-[min(980px,calc(100dvh-3rem))] aspect-[1536/2688] max-w-[calc(100vw-1rem)]"
+        className="relative h-[min(980px,calc(100dvh-3rem))] aspect-[1536/2688] max-w-[calc(100vw-1rem)] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url("/assets/images/Cuenta%20regresiva%202.png")` }}
       >
-        <img
-          src="/assets/images/Cuenta%20regresiva%202.png"
-          alt=""
-          className="pointer-events-none block h-full w-full select-none object-contain"
-          aria-hidden="true"
-        />
 
         <div className="absolute inset-x-[10%] top-[20%] text-center">
           <motion.p
