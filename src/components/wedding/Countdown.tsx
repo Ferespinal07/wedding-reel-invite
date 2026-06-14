@@ -51,10 +51,7 @@ export function Countdown({ language }: { language: Language }) {
   ];
 
   return (
-
-    <section 
-      className="snap-section relative flex items-center justify-center overflow-hidden"
-    >
+    <section className="snap-section relative flex min-h-[90dvh] items-center justify-center overflow-hidden md:min-h-[100dvh]">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
