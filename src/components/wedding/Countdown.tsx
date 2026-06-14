@@ -84,7 +84,7 @@ export function Countdown({ language }: { language: Language }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.25 }}
-            className="mt-3 font-serif text-4xl font-light italic leading-[1.1] sm:text-5xl md:text-6xl"
+            className="mt-3 font-display text-5xl font-light leading-none text-foreground sm:text-6xl md:text-7xl"
           >
             {text.title}
             <br />
