@@ -51,16 +51,20 @@ export function Countdown({ language }: { language: Language }) {
   ];
 
   return (
-    <section className="snap-section relative flex items-center justify-center overflow-hidden px-4 py-6">
+
+    <section 
+      className="snap-section relative flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url("/assets/images/Cuenta%20regresiva%202.png")` }}
+    >
+      <div className="absolute inset-0 bg-cream/20 backdrop-blur-[1px]" />
+
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9 }}
-        className="relative h-[min(980px,calc(100dvh-3rem))] aspect-[1536/2688] max-w-[calc(100vw-1rem)] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url("/assets/images/Cuenta%20regresiva%202.png")` }}
+        className="relative h-full w-full max-w-5xl"
       >
-
         <div className="absolute inset-x-[10%] top-[20%] text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
