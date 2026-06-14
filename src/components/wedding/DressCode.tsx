@@ -1,6 +1,6 @@
 import type { Language } from "@/App";
 import { motion } from "framer-motion";
-import { Heart, Leaf, Shirt, Sparkles } from "lucide-react";
+import { Heart, Shirt, Sparkles } from "lucide-react";
 
 const copy = {
   es: {
@@ -127,22 +127,26 @@ export function DressCode({ language }: { language: Language }) {
                 ))}
               </div>
 
-              <div className="-mx-7 mt-10 grid grid-cols-[0.55fr_1fr] items-center gap-6 bg-[#eee8dd] px-7 py-9 text-left">
-                <Leaf className="mx-auto h-24 w-24 text-sage-deep/45" strokeWidth={1} />
-                <p className="text-base leading-8 tracking-wide text-foreground/65">
+              <div className="-mx-7 mt-10 grid grid-cols-[0.65fr_1fr] items-center gap-5 bg-[#eee8dd] px-7 py-9 text-left sm:gap-8">
+                <div className="relative mx-auto w-full max-w-[120px]">
+                  <img src="/assets/images/outfit1.png" alt="Outfit 1" className="aspect-[3/4] w-full rounded-t-full rounded-b-3xl object-cover shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)] border-4 border-[#f6f2eb]" />
+                </div>
+                <p className="text-[0.95rem] leading-relaxed tracking-wide text-foreground/75">
                   {text.elegantLooks}
                 </p>
               </div>
 
-              <div className="-mx-7 -mb-10 grid grid-cols-[0.5fr_1fr] items-center gap-6 bg-[#e8dfd4] px-7 py-9 text-left">
-                <Leaf className="mx-auto h-24 w-24 -rotate-12 text-sage-deep/40" strokeWidth={1} />
+              <div className="-mx-7 -mb-10 grid grid-cols-[1fr_0.65fr] items-center gap-5 bg-[#e8dfd4] px-7 py-9 text-right sm:gap-8">
                 <div>
                   <p className="font-serif text-3xl font-light italic text-[#c99e9a]">
                     {text.inspire}
                   </p>
-                  <p className="mt-2 text-base leading-8 tracking-wide text-foreground/65">
+                  <p className="mt-2 text-[0.95rem] leading-relaxed tracking-wide text-foreground/75">
                     {text.inspireText}
                   </p>
+                </div>
+                <div className="relative mx-auto w-full max-w-[120px]">
+                  <img src="/assets/images/outfit2.png" alt="Outfit 2" className="aspect-[3/4] w-full rounded-t-full rounded-b-3xl object-cover shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)] border-4 border-[#eee8dd]" />
                 </div>
               </div>
             </div>
