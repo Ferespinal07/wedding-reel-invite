@@ -60,8 +60,8 @@ export function Countdown({ language }: { language: Language }) {
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 bg-[url('/assets/images/Cuenta%20regresiva%202.png')] bg-cover bg-center bg-no-repeat"
-      />s
+        className="absolute inset-0 bg-[url('/assets/images/Regresiva.png')] bg-cover bg-center bg-no-repeat"
+      />
       <div className="absolute inset-0 bg-cream/10 backdrop-blur-[0.5px]" />
 
       <motion.div
