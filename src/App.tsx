@@ -63,10 +63,10 @@ export default function App() {
         <EventDetails language={language} />
         <BibleVerse language={language} />
         <PartyMusic language={language} />
+        <Gifts language={language} />
         <DressCode language={language} />
         <Tips language={language} />
         <WeddingRings language={language} />
-        <Gifts language={language} />
         <RSVP language={language} />
         <Toaster position="top-center" />
       </main>
