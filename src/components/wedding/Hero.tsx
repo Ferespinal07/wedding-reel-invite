@@ -113,11 +113,15 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2.4 }}
-        className="absolute bottom-8 flex flex-col items-center gap-2"
+          className="absolute bottom-8 flex flex-col items-center gap-2"
         >
-        <span className="text-[0.6rem] font-bold uppercase tracking-luxury text-foreground drop-shadow-[0_1px_10px_oklch(0.97_0.008_90_/_0.85)]">
-          {t.scroll}
-        </span>
+          <motion.span
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="text-[0.6rem] font-bold uppercase tracking-luxury text-foreground drop-shadow-[0_1px_10px_oklch(0.97_0.008_90_/_0.85)]"
+          >
+            {t.scroll}
+          </motion.span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}

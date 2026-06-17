@@ -6,9 +6,9 @@ import { useState } from "react";
 const copy = {
   es: {
     eyebrow: "Regalos",
-    title: "Lluvia de sobres",
+    title: "Un detalle especial",
     message:
-      "El mejor regalo es compartir este día contigo. Si deseas tener un detalle adicional, agradecemos de corazón tu aporte.",
+      "Para nosotros, tu presencia es lo más importante. Si nace de tu corazón ayudarnos a construir nuestro nuevo hogar, recibimos tu gesto de cariño con mucha gratitud.",
     copyBtn: "Copiar",
     copiedBtn: "Copiado",
     bankBtn: "Ir al banco",
@@ -33,9 +33,9 @@ const copy = {
   },
   en: {
     eyebrow: "Gifts",
-    title: "Envelope gifts",
+    title: "A special detail",
     message:
-      "The best gift is sharing this day with you. If you wish to give us something more, we deeply appreciate your contribution.",
+      "Your presence is what matters most to us. If it comes from your heart to help us build our new home, we receive your kind gesture with immense gratitude.",
     copyBtn: "Copy",
     copiedBtn: "Copied",
     bankBtn: "Go to bank",
@@ -98,46 +98,46 @@ export function Gifts({ language }: { language: Language }) {
           "{text.message}"
         </p>
 
-        <div className="mt-8 space-y-4 text-left">
+      <div className="mt-8 space-y-5 text-left">
           {text.accounts.map((acc, i) => (
             <div
               key={acc.bank}
-              className={`rounded-sm border p-5 ${
-                i === 0 ? "border-rose/30 bg-blush/20" : "border-sage/30 bg-sage/10"
+            className={`group relative overflow-hidden rounded-xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-15px_rgba(0,0,0,0.15)] ${
+              i === 0 ? "border-rose/30 bg-gradient-to-br from-blush/40 to-cream/20" : "border-sage/30 bg-gradient-to-br from-sage/20 to-cream/20"
               }`}
             >
               <div className="flex items-center justify-between">
                 <p
-                  className={`text-[0.65rem] font-medium uppercase tracking-luxury ${
-                    i === 0 ? "text-rose/80" : "text-sage-deep"
+                className={`text-[0.7rem] font-bold uppercase tracking-luxury ${
+                  i === 0 ? "text-rose-deep" : "text-sage-deep"
                   }`}
                 >
                   {acc.bank}
                 </p>
-                <p className="text-[0.55rem] uppercase tracking-widest text-muted-foreground">
+              <p className="text-[0.55rem] font-medium uppercase tracking-widest text-muted-foreground">
                   {acc.type}
                 </p>
               </div>
-              <p className="mt-2 font-serif text-2xl tracking-wider text-foreground">
+            <p className="mt-4 font-display text-3xl tracking-widest text-foreground sm:text-4xl">
                 {acc.number}
               </p>
-              <div className="mt-3 space-y-1 text-xs text-muted-foreground">
-                <p className="uppercase tracking-wider text-foreground/80">{acc.name}</p>
+            <div className="mt-4 space-y-1.5 text-xs text-muted-foreground">
+              <p className="font-bold uppercase tracking-wider text-foreground/90">{acc.name}</p>
                 <p className="tracking-wide">{acc.id}</p>
               </div>
 
-              <div className="mt-5 flex gap-2">
+            <div className="mt-6 flex gap-3">
                 <button
                   type="button"
                   onClick={() => handleCopy(acc.number, i)}
-                  className={`flex flex-1 items-center justify-center gap-2 border bg-white/40 py-2.5 text-[0.65rem] uppercase tracking-luxury transition-colors hover:bg-white/60 ${
-                    i === 0 ? "border-rose/20 text-rose-deep/80" : "border-sage/20 text-sage-deep/80"
+                className={`flex flex-1 items-center justify-center gap-2 rounded-sm border bg-white/60 py-3 text-[0.65rem] font-bold uppercase tracking-luxury transition-colors hover:bg-white/90 ${
+                  i === 0 ? "border-rose/20 text-rose-deep" : "border-sage/20 text-sage-deep"
                   }`}
                 >
                   {copiedIndex === i ? (
-                    <Check className="h-3.5 w-3.5" />
+                  <Check className="h-4 w-4" />
                   ) : (
-                    <Copy className="h-3.5 w-3.5" />
+                  <Copy className="h-4 w-4" />
                   )}
                   {copiedIndex === i ? text.copiedBtn : text.copyBtn}
                 </button>
@@ -145,11 +145,11 @@ export function Gifts({ language }: { language: Language }) {
                   href={acc.link}
                   target="_blank"
                   rel="noreferrer"
-                  className={`flex flex-1 items-center justify-center gap-2 border bg-white/40 py-2.5 text-[0.65rem] uppercase tracking-luxury transition-colors hover:bg-white/60 ${
-                    i === 0 ? "border-rose/20 text-rose-deep/80" : "border-sage/20 text-sage-deep/80"
+                className={`flex flex-1 items-center justify-center gap-2 rounded-sm border bg-white/60 py-3 text-[0.65rem] font-bold uppercase tracking-luxury transition-colors hover:bg-white/90 ${
+                  i === 0 ? "border-rose/20 text-rose-deep" : "border-sage/20 text-sage-deep"
                   }`}
                 >
-                  <ExternalLink className="h-3.5 w-3.5" />
+                <ExternalLink className="h-4 w-4" />
                   {text.bankBtn}
                 </a>
               </div>
