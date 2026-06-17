@@ -19,6 +19,10 @@ const copy = {
     no: "No podré",
     message: "Mensaje / Restricciones",
     submit: "Enviar Confirmación",
+    guestOfLabel: "¿De quién eres invitado?",
+    guestOfRequired: "Por favor indica de quién eres invitado",
+    omaisy: "Omaisy",
+    junior: "Junior",
   },
   en: {
     eyebrow: "Confirmation",
@@ -35,12 +39,18 @@ const copy = {
     no: "I cannot attend",
     message: "Message / Restrictions",
     submit: "Send Confirmation",
+    guestOfLabel: "Whose guest are you?",
+    guestOfRequired: "Please indicate whose guest you are",
+    omaisy: "Omaisy",
+    junior: "Junior",
   },
 };
 
 const BRIDE_WHATSAPP_NUMBER = "18299280575";
+const GROOM_WHATSAPP_NUMBER = "18293984157";
 
 export function RSVP({ language }: { language: Language }) {
+  const [guestOf, setGuestOf] = useState<"omaisy" | "junior" | null>(null);
   const [attending, setAttending] = useState<"yes" | "no" | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [name, setName] = useState("");
@@ -56,6 +66,11 @@ export function RSVP({ language }: { language: Language }) {
       return;
     }
 
+    if (!guestOf) {
+      toast.error(text.guestOfRequired);
+      return;
+    }
+
     if (!attending) {
       toast.error(text.required);
       return;
@@ -64,13 +79,16 @@ export function RSVP({ language }: { language: Language }) {
     const attendanceText = attending === "yes" ? text.yes : text.no;
     const whatsappMessage = [
       `Hola, soy ${trimmedName}.`,
+      `Soy invitado de ${guestOf === "omaisy" ? "Omaisy" : "Junior"}.`,
       "Quiero confirmar mi asistencia a la boda de Junior & Omaisy.",
       `Asistencia: ${attendanceText}.`,
       message.trim() ? `Mensaje / Restricciones: ${message.trim()}` : "",
     ]
       .filter(Boolean)
       .join("\n");
-    const whatsappUrl = `https://wa.me/${BRIDE_WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      
+    const targetPhone = guestOf === "omaisy" ? BRIDE_WHATSAPP_NUMBER : GROOM_WHATSAPP_NUMBER;
+    const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(
       whatsappMessage,
     )}`;
 
@@ -128,6 +146,28 @@ export function RSVP({ language }: { language: Language }) {
               onChange={(e) => setName(e.target.value)}
               className="mt-2 w-full border-b border-sage/40 bg-transparent py-2 text-base tracking-wider text-foreground outline-none focus:border-sage sm:text-sm"
             />
+          </div>
+
+          <div>
+            <label className="text-[0.6rem] uppercase tracking-luxury text-sage-deep">
+              {text.guestOfLabel}
+            </label>
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              {(["omaisy", "junior"] as const).map((v) => (
+                <button
+                  key={v}
+                  type="button"
+                  onClick={() => setGuestOf(v)}
+                  className={`border py-3 text-[0.65rem] uppercase tracking-luxury transition-all ${
+                    guestOf === v
+                      ? "border-sage bg-sage text-primary-foreground"
+                      : "border-sage/40 text-foreground/80 hover:border-sage"
+                  }`}
+                >
+                  {v === "omaisy" ? text.omaisy : text.junior}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div>
