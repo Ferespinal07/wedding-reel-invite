@@ -53,7 +53,7 @@ export function PartyMusic({ language }: { language: Language }) {
   }
 
   return (
-    <section className="snap-section relative flex flex-col justify-center px-6 py-20">
+    <section className="relative flex flex-col justify-center px-6 py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -75,13 +75,13 @@ export function PartyMusic({ language }: { language: Language }) {
           value={song}
           onChange={(e) => setSong(e.target.value)}
           placeholder={text.song}
-          className="w-full border-b border-sage/40 bg-transparent py-2 text-sm tracking-wider text-foreground outline-none focus:border-sage"
+          className="w-full border-b border-sage/40 bg-transparent py-2 text-base tracking-wider text-foreground outline-none focus:border-sage sm:text-sm"
         />
         <input
           value={artist}
           onChange={(e) => setArtist(e.target.value)}
           placeholder={text.artist}
-          className="w-full border-b border-sage/40 bg-transparent py-2 text-sm tracking-wider text-foreground outline-none focus:border-sage"
+          className="w-full border-b border-sage/40 bg-transparent py-2 text-base tracking-wider text-foreground outline-none focus:border-sage sm:text-sm"
         />
         <div className="mt-4 flex flex-col gap-3">
           <button

@@ -98,7 +98,7 @@ export function RSVP({ language }: { language: Language }) {
   }
 
   return (
-    <section id="rsvp" className="snap-section relative flex flex-col justify-center px-6 py-20">
+    <section id="rsvp" className="relative flex flex-col justify-center px-6 py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

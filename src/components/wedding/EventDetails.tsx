@@ -118,7 +118,7 @@ export function EventDetails({ language }: { language: Language }) {
       <div className="absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,#efe6dc_0%,#f7f3ec_60%,#f7f3ec_100%)]" />
       <div className="absolute inset-x-0 bottom-0 h-56 bg-[linear-gradient(180deg,#f7f3ec_0%,#e8dacf_100%)]" />
 
-      <div className="relative z-10 mx-auto flex min-h-[170dvh] w-full max-w-5xl flex-col justify-center">
+      <div className="relative z-10 mx-auto flex min-h-[170svh] w-full max-w-5xl flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
