@@ -36,10 +36,10 @@ const events = {
         note: "Un momento íntimo y solemne para bendecir el inicio de nuestra vida juntos.",
         image: "/assets/images/Ceremonia.png",
         calendarTitle: "Ceremonia Religiosa - Junior & Omaisy",
-        calendarDetails: "Acompáñanos a celebrar nuestra unión matrimonial.",
-        locationName: "Club Codia",
-        address: "Los Robles, Las Sabinas Calle 4, La Vega 41000",
-        mapUrl: "https://maps.app.goo.gl/ZLUK6Vd531DuKRMD8?g_st=iw",
+        calendarDetails: "La ubicación exacta será compartida luego de confirmar asistencia.",
+        locationName: "Ubicación",
+        address: "Será compartida luego de confirmar asistencia.",
+        mapUrl: "",
       },
       {
         kind: "02 / Celebracion",
@@ -49,10 +49,10 @@ const events = {
         note: "Después de la ceremonia, brindaremos, cenaremos y bailaremos para celebrar el amor.",
         image: "/assets/images/Celebracion.png",
         calendarTitle: "Recepción & Fiesta - Junior & Omaisy",
-        calendarDetails: "Recepción y fiesta de nuestra boda.",
-        locationName: "Club Codia",
-        address: "Los Robles, Las Sabinas Calle 4, La Vega 41000",
-        mapUrl: "https://maps.app.goo.gl/ZLUK6Vd531DuKRMD8?g_st=iw",
+        calendarDetails: "La ubicación exacta será compartida luego de confirmar asistencia.",
+        locationName: "Ubicación",
+        address: "Será compartida luego de confirmar asistencia.",
+        mapUrl: "",
       },
     ],
   },
@@ -75,10 +75,10 @@ const events = {
         note: "An intimate and sacred moment to bless the beginning of our life together.",
         image: "/assets/images/Ceremonia.png",
         calendarTitle: "Religious Ceremony - Junior & Omaisy",
-        calendarDetails: "Join us to celebrate our wedding ceremony.",
-        locationName: "Club Codia",
-        address: "Los Robles, Las Sabinas Calle 4, La Vega 41000",
-        mapUrl: "https://maps.app.goo.gl/ZLUK6Vd531DuKRMD8?g_st=iw",
+        calendarDetails: "The exact location will be shared after confirming attendance.",
+        locationName: "Location",
+        address: "Will be shared after confirming attendance.",
+        mapUrl: "",
       },
       {
         kind: "02 / Celebration",
@@ -88,10 +88,10 @@ const events = {
         note: "After the ceremony, we will toast, dine, and dance in celebration of love.",
         image: "/assets/images/Celebracion.png",
         calendarTitle: "Reception & Party - Junior & Omaisy",
-        calendarDetails: "Wedding reception and party.",
-        locationName: "Club Codia",
-        address: "Los Robles, Las Sabinas Calle 4, La Vega 41000",
-        mapUrl: "https://maps.app.goo.gl/ZLUK6Vd531DuKRMD8?g_st=iw",
+        calendarDetails: "The exact location will be shared after confirming attendance.",
+        locationName: "Location",
+        address: "Will be shared after confirming attendance.",
+        mapUrl: "",
       },
     ],
   },
@@ -250,14 +250,16 @@ function EventMomentCard({
           >
             {saveLabel}
           </a>
-          <a
-            href={event.mapUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex flex-1 items-center justify-center border border-sage bg-sage px-5 py-3 text-center text-[0.62rem] uppercase tracking-luxury text-primary-foreground transition-colors hover:bg-sage-deep"
-          >
-            {mapButtonLabel}
-          </a>
+          {event.mapUrl && (
+            <a
+              href={event.mapUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex flex-1 items-center justify-center border border-sage bg-sage px-5 py-3 text-center text-[0.62rem] uppercase tracking-luxury text-primary-foreground transition-colors hover:bg-sage-deep"
+            >
+              {mapButtonLabel}
+            </a>
+          )}
         </div>
       </div>
     </motion.article>
