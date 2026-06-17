@@ -49,7 +49,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
         type="button"
         aria-label={t.languageLabel}
         onClick={() => onLanguageChange(nextLanguage)}
-        className="absolute right-4 top-4 z-20 border border-sage bg-cream px-4 py-2 text-[0.65rem] uppercase tracking-luxury text-sage-deep shadow-sm transition-colors hover:bg-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep"
+        className="absolute right-4 top-4 z-20 border border-sage bg-cream px-4 py-2 text-[0.65rem] font-bold uppercase tracking-luxury text-foreground shadow-sm transition-colors hover:bg-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep"
       >
         {nextLanguage.toUpperCase()}
       </button>
@@ -59,7 +59,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-[0.7rem] font-medium uppercase tracking-luxury text-sage-deep drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]"
+          className="text-[0.7rem] font-bold uppercase tracking-luxury text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]"
         >
           {t.eyebrow}
         </motion.p>
@@ -79,7 +79,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
         >
           Junior
           <br />
-          <span className="font-display text-rose">&</span>
+          <span className="font-serif text-rose">&</span>
           <br />
           Omaisy
         </motion.h1>
@@ -91,7 +91,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           className="mt-10 flex items-center gap-4"
         >
           <span className="h-px w-10 bg-sage" />
-          <p className="text-xs font-medium tracking-luxury text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]">{t.date}</p>
+          <p className="text-xs font-bold tracking-luxury text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]">{t.date}</p>
           <span className="h-px w-10 bg-sage" />
         </motion.div>
 
@@ -99,12 +99,12 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 2 }}
-          className="mt-8 max-w-xs font-serif text-base font-medium italic leading-relaxed text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]"
+          className="mt-8 max-w-xs font-serif text-base font-bold italic leading-relaxed text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]"
         >
           "{t.verse}
           <br /> {t.verseSecond}"
           <br />
-          <span className="mt-2 inline-block text-[0.65rem] font-medium not-italic uppercase tracking-luxury text-sage-deep drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]">
+          <span className="mt-2 inline-block text-[0.65rem] font-bold not-italic uppercase tracking-luxury text-foreground drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]">
             {t.reference}
           </span>
         </motion.p>
@@ -115,7 +115,7 @@ export function Hero({ language, onLanguageChange }: HeroProps) {
           transition={{ duration: 1, delay: 2.4 }}
         className="absolute bottom-8 flex flex-col items-center gap-2"
         >
-        <span className="text-[0.6rem] uppercase tracking-luxury text-foreground drop-shadow-[0_1px_10px_oklch(0.97_0.008_90_/_0.85)]">
+        <span className="text-[0.6rem] font-bold uppercase tracking-luxury text-foreground drop-shadow-[0_1px_10px_oklch(0.97_0.008_90_/_0.85)]">
           {t.scroll}
         </span>
         <motion.div

@@ -8,7 +8,7 @@ const copy = {
     eyebrow: "Regalos",
     title: "Lluvia de sobres",
     message:
-      "El mejor regalo es compartir este dia contigo. Si deseas tener un detalle adicional, agradecemos de corazon tu aporte.",
+      "El mejor regalo es compartir este día contigo. Si deseas tener un detalle adicional, agradecemos de corazón tu aporte.",
     copyBtn: "Copiar",
     copiedBtn: "Copiado",
     bankBtn: "Ir al banco",
@@ -17,7 +17,7 @@ const copy = {
         bank: "Banco BHD",
         type: "Cuenta de Ahorros",
         number: "37532840010",
-        name: "Omaisy Gomez",
+        name: "Omaisy Gómez",
         id: "Cédula: 402-0906353-2",
         link: "https://bhd.com.do",
       },

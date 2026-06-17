@@ -4,22 +4,22 @@ import { Heart, Shirt, Sparkles } from "lucide-react";
 
 const copy = {
   es: {
-    eyebrow: "Codigo de Vestimenta",
+    eyebrow: "Código de Vestimenta",
     title: "Dress code",
     style: "Formal elegante",
     intro:
-      "Queremos que te sientas comodo, fresco y especial. Te compartimos una guia visual con tonos suaves y elegantes para acompanar la atmosfera de nuestra boda.",
+      "Queremos que te sientas cómodo, fresco y especial. Te compartimos una guía visual con tonos suaves y elegantes para acompañar la atmósfera de nuestra boda.",
     paletteText:
-      "Verde salvia, verde oliva, rosa empolvado, nude, beige, champan y tonos tierra claros.",
-    inspirationAlt: "Inspiracion de vestimenta para la boda",
-    infoAlt: "Informacion de colores sugeridos para la vestimenta",
+      "Verde salvia, verde oliva, rosa empolvado, nude, beige, champán y tonos tierra claros.",
+    inspirationAlt: "Inspiración de vestimenta para la boda",
+    infoAlt: "Información de colores sugeridos para la vestimenta",
     outfitTitle: "OUTFITS",
     outfitScript: "de boda",
     suggestedColors: "Colores sugeridos:",
     elegantLooks:
-      "Looks elegantes, frescos y atemporales para celebrar con nosotros este dia tan especial.",
-    inspire: "Inspirate",
-    inspireText: "en la paleta de colores y elige el look que te haga sentir increible.",
+      "Looks elegantes, frescos y atemporales para celebrar con nosotros este día tan especial.",
+    inspire: "Inspírate",
+    inspireText: "en la paleta de colores y elige el look que te haga sentir increíble.",
   },
   en: {
     eyebrow: "Dress Code",

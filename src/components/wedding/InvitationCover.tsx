@@ -11,7 +11,7 @@ export function InvitationCover({ isOpening, onOpen }: InvitationCoverProps) {
   return (
     <section
       className="fixed inset-0 z-50 isolate flex w-full items-center justify-center overflow-hidden bg-cream"
-      aria-label="Sobre de invitacion"
+      aria-label="Sobre de invitación"
     >
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
@@ -27,7 +27,7 @@ export function InvitationCover({ isOpening, onOpen }: InvitationCoverProps) {
 
       <motion.button
         type="button"
-        aria-label="Abrir invitacion"
+        aria-label="Abrir invitación"
         onClick={onOpen}
         disabled={isOpening}
         className="absolute left-1/2 top-[56%] z-20 h-36 w-36 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full outline-none focus-visible:ring-2 focus-visible:ring-sage-deep focus-visible:ring-offset-4 focus-visible:ring-offset-cream sm:h-44 sm:w-44"

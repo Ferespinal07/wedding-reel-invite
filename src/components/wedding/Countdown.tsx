@@ -20,8 +20,8 @@ const copy = {
   es: {
     eyebrow: "Cuenta Regresiva",
     title: "Falta poco para",
-    titleSecond: "nuestro gran dia",
-    labels: ["Dias", "Horas", "Minutos", "Segundos"],
+    titleSecond: "nuestro gran día",
+    labels: ["Días", "Horas", "Minutos", "Segundos"],
   },
   en: {
     eyebrow: "Countdown",
@@ -103,7 +103,7 @@ export function Countdown({ language }: { language: Language }) {
                 transition={{ duration: 0.6, delay: 0.45 + i * 0.1 }}
                 className="flex flex-col items-center"
               >
-                <div className="relative flex aspect-square w-full items-center justify-center rounded-sm bg-transparent shadow-[0_12px_40px_-28px_rgba(91,70,32,0.75)] backdrop-blur-[1px]">
+                <div className="relative flex aspect-square w-full items-center justify-center">
                   <span
                     suppressHydrationWarning
                     className="font-serif text-4xl font-medium leading-none text-foreground tabular-nums sm:text-5xl md:text-6xl"

@@ -10,7 +10,7 @@ export function MusicControl({ isMuted, onToggleMute }: MusicControlProps) {
     <div className="fixed bottom-4 right-4 z-40 border border-sage bg-cream p-1 shadow-sm">
       <button
         type="button"
-        aria-label={isMuted ? "Activar sonido" : "Silenciar musica"}
+        aria-label={isMuted ? "Activar sonido" : "Silenciar música"}
         onClick={onToggleMute}
         className="flex h-9 w-9 items-center justify-center text-sage-deep transition-colors hover:bg-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep"
       >

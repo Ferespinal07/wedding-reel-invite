@@ -6,12 +6,12 @@ import { toast } from "sonner";
 
 const copy = {
   es: {
-    title: "Musica de la fiesta",
-    description: "Sugiere la cancion que no puede faltar en nuestra celebracion.",
-    song: "Cancion",
+    title: "Música de la fiesta",
+    description: "Sugiere la canción que no puede faltar en nuestra celebración.",
+    song: "Canción",
     artist: "Artista",
     button: "Agregar a la playlist",
-    toast: "Gracias por tu sugerencia!",
+    toast: "¡Gracias por tu sugerencia!",
     viewList: "Ver listado",
   },
   en: {
@@ -44,7 +44,7 @@ export function PartyMusic({ language }: { language: Language }) {
         body: JSON.stringify({ Cancion: song.trim(), Artista: artist.trim() }),
       });
     } catch (error) {
-      console.error("Error guardando la cancion:", error);
+      console.error("Error guardando la canción:", error);
     }
 
     setSong("");

@@ -10,12 +10,12 @@ const copy = {
       {
         icon: Camera,
         title: "Desconecta",
-        text: "Disfruta el momento. Guarda tu camara durante la ceremonia.",
+        text: "Disfruta el momento. Guarda tu cámara durante la ceremonia.",
       },
       {
         icon: Baby,
         title: "Solo adultos",
-        text: "Sera una celebracion pensada solo para adultos.",
+        text: "Será una celebración pensada solo para adultos.",
       },
       {
         icon: Car,
@@ -25,7 +25,7 @@ const copy = {
       {
         icon: Heart,
         title: "Tu presencia",
-        text: "Es el regalo mas importante para nosotros.",
+        text: "Es el regalo más importante para nosotros.",
       },
     ],
   },

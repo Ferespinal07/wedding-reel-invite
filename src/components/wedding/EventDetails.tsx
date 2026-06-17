@@ -15,36 +15,36 @@ type EventMoment = {
 
 const events = {
   es: {
-    eyebrow: "Nuestro Dia",
-    title: "Ceremonia & celebracion",
+    eyebrow: "Nuestro Día",
+    title: "Ceremonia & celebración",
     intro:
-      "Dos momentos, una misma promesa. Queremos vivir cada instante contigo, desde el si ante Dios hasta el abrazo alegre de la celebracion.",
-    confirmTitle: "Confirmacion mas abajo",
-    confirmText: "Al final de la invitacion encontraras el formulario para confirmar tu asistencia.",
-    rsvp: "Ir a confirmacion",
+      "Dos momentos, una misma promesa. Queremos vivir cada instante contigo, desde el sí ante Dios hasta el abrazo alegre de la celebración.",
+    confirmTitle: "Confirmación más abajo",
+    confirmText: "Al final de la invitación encontrarás el formulario para confirmar tu asistencia.",
+    rsvp: "Ir a confirmación",
     save: "Agendar",
     moments: [
       {
         kind: "01 / Ceremonia",
         title: "Ceremonia Religiosa",
-        day: "Sabado, 18 de Julio",
+        day: "Sábado, 18 de Julio",
         time: "7:00 PM",
-        note: "Un momento intimo y solemne para bendecir el inicio de nuestra vida juntos.",
+        note: "Un momento íntimo y solemne para bendecir el inicio de nuestra vida juntos.",
         image: "/assets/images/Ceremonia.png",
         calendarTitle: "Ceremonia Religiosa - Junior & Omaisy",
         calendarDetails:
-          "La ubicacion exacta sera compartida luego de confirmar asistencia.",
+          "La ubicación exacta será compartida luego de confirmar asistencia.",
       },
       {
         kind: "02 / Celebracion",
-        title: "Recepcion & Fiesta",
-        day: "Sabado, 18 de Julio",
+        title: "Recepción & Fiesta",
+        day: "Sábado, 18 de Julio",
         time: "Al finalizar la ceremonia",
-        note: "Despues de la ceremonia, brindaremos, cenaremos y bailaremos para celebrar el amor.",
+        note: "Después de la ceremonia, brindaremos, cenaremos y bailaremos para celebrar el amor.",
         image: "/assets/images/Celebracion.png",
-        calendarTitle: "Recepcion & Fiesta - Junior & Omaisy",
+        calendarTitle: "Recepción & Fiesta - Junior & Omaisy",
         calendarDetails:
-          "La ubicacion exacta sera compartida luego de confirmar asistencia.",
+          "La ubicación exacta será compartida luego de confirmar asistencia.",
       },
     ],
   },
@@ -87,7 +87,7 @@ function buildCalUrl(event: EventMoment) {
   const end = event.kind.includes("01") ? "20260718T203000" : "20260718T233000";
   const text = encodeURIComponent(event.calendarTitle);
   const details = encodeURIComponent(event.calendarDetails);
-  const location = encodeURIComponent("Ubicacion por confirmar");
+  const location = encodeURIComponent("Ubicación por confirmar");
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${start}/${end}&details=${details}&location=${location}`;
 }
 
@@ -119,7 +119,12 @@ export function EventDetails({ language }: { language: Language }) {
             id="event-details-title"
             className="mt-4 font-display text-6xl font-light leading-none text-foreground sm:text-7xl"
           >
-            {text.title}
+            {text.title.split("&").map((part, i, arr) => (
+              <span key={i}>
+                {part}
+                {i < arr.length - 1 && <span className="font-serif">&</span>}
+              </span>
+            ))}
           </h2>
           <div className="sage-divider mx-auto mt-7 w-28" />
           <p className="mx-auto mt-7 max-w-xl text-sm leading-7 tracking-wider text-muted-foreground">

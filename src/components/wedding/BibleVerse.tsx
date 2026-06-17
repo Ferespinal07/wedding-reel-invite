@@ -5,8 +5,8 @@ const copy = {
   es: {
     eyebrow: "Palabra de Dios",
     verse:
-      "Mejores son dos que uno; porque tienen mejor paga de su trabajo. Porque si cayeren, el uno levantara a su companero. Y cordon de tres dobleces no se rompe pronto.",
-    reference: "Eclesiastes 4:9-12",
+      "Mejores son dos que uno; porque tienen mejor paga de su trabajo. Porque si cayeren, el uno levantará a su compañero. Y cordón de tres dobleces no se rompe pronto.",
+    reference: "Eclesiastés 4:9-12",
   },
   en: {
     eyebrow: "God's Word",
