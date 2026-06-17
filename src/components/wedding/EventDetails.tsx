@@ -11,6 +11,9 @@ type EventMoment = {
   image: string;
   calendarTitle: string;
   calendarDetails: string;
+  locationName: string;
+  address: string;
+  mapUrl: string;
 };
 
 const events = {
@@ -23,6 +26,7 @@ const events = {
     confirmText: "Al final de la invitación encontrarás el formulario para confirmar tu asistencia.",
     rsvp: "Ir a confirmación",
     save: "Agendar",
+    mapButton: "Ver en mapa",
     moments: [
       {
         kind: "01 / Ceremonia",
@@ -32,8 +36,10 @@ const events = {
         note: "Un momento íntimo y solemne para bendecir el inicio de nuestra vida juntos.",
         image: "/assets/images/Ceremonia.png",
         calendarTitle: "Ceremonia Religiosa - Junior & Omaisy",
-        calendarDetails:
-          "La ubicación exacta será compartida luego de confirmar asistencia.",
+        calendarDetails: "Acompáñanos a celebrar nuestra unión matrimonial.",
+        locationName: "Club Codia",
+        address: "Los Robles, Las Sabinas Calle 4, La Vega 41000",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=19.211507,-70.52625",
       },
       {
         kind: "02 / Celebracion",
@@ -43,8 +49,10 @@ const events = {
         note: "Después de la ceremonia, brindaremos, cenaremos y bailaremos para celebrar el amor.",
         image: "/assets/images/Celebracion.png",
         calendarTitle: "Recepción & Fiesta - Junior & Omaisy",
-        calendarDetails:
-          "La ubicación exacta será compartida luego de confirmar asistencia.",
+        calendarDetails: "Recepción y fiesta de nuestra boda.",
+        locationName: "Club Codia",
+        address: "Los Robles, Las Sabinas Calle 4, La Vega 41000",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=19.211507,-70.52625",
       },
     ],
   },
@@ -57,6 +65,7 @@ const events = {
     confirmText: "You will find the attendance form near the end of the invitation.",
     rsvp: "Go to confirmation",
     save: "Save",
+    mapButton: "View on map",
     moments: [
       {
         kind: "01 / Ceremony",
@@ -66,7 +75,10 @@ const events = {
         note: "An intimate and sacred moment to bless the beginning of our life together.",
         image: "/assets/images/Ceremonia.png",
         calendarTitle: "Religious Ceremony - Junior & Omaisy",
-        calendarDetails: "The exact location will be shared after confirming attendance.",
+        calendarDetails: "Join us to celebrate our wedding ceremony.",
+        locationName: "Club Codia",
+        address: "Los Robles, Las Sabinas Calle 4, La Vega 41000",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=19.211507,-70.52625",
       },
       {
         kind: "02 / Celebration",
@@ -76,7 +88,10 @@ const events = {
         note: "After the ceremony, we will toast, dine, and dance in celebration of love.",
         image: "/assets/images/Celebracion.png",
         calendarTitle: "Reception & Party - Junior & Omaisy",
-        calendarDetails: "The exact location will be shared after confirming attendance.",
+        calendarDetails: "Wedding reception and party.",
+        locationName: "Club Codia",
+        address: "Los Robles, Las Sabinas Calle 4, La Vega 41000",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=19.211507,-70.52625",
       },
     ],
   },
@@ -87,7 +102,7 @@ function buildCalUrl(event: EventMoment) {
   const end = event.kind.includes("01") ? "20260718T203000" : "20260718T233000";
   const text = encodeURIComponent(event.calendarTitle);
   const details = encodeURIComponent(event.calendarDetails);
-  const location = encodeURIComponent("Ubicación por confirmar");
+  const location = encodeURIComponent(`${event.locationName}, ${event.address}`);
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${start}/${end}&details=${details}&location=${location}`;
 }
 
@@ -135,7 +150,7 @@ export function EventDetails({ language }: { language: Language }) {
         <div className="relative mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_5rem_1fr] md:gap-6">
           <div className="absolute left-1/2 top-6 hidden h-[calc(100%-3rem)] w-px -translate-x-1/2 bg-sage md:block" />
 
-          <EventMomentCard event={text.moments[0]} saveLabel={text.save} align="left" />
+          <EventMomentCard event={text.moments[0]} saveLabel={text.save} mapButtonLabel={text.mapButton} align="left" />
 
           <div className="relative hidden items-center justify-center md:flex">
             <div className="flex h-full flex-col items-center justify-between py-12">
@@ -145,7 +160,7 @@ export function EventDetails({ language }: { language: Language }) {
             </div>
           </div>
 
-          <EventMomentCard event={text.moments[1]} saveLabel={text.save} align="right" />
+          <EventMomentCard event={text.moments[1]} saveLabel={text.save} mapButtonLabel={text.mapButton} align="right" />
         </div>
 
         <motion.div
@@ -177,10 +192,12 @@ export function EventDetails({ language }: { language: Language }) {
 function EventMomentCard({
   event,
   saveLabel,
+  mapButtonLabel,
   align,
 }: {
   event: EventMoment;
   saveLabel: string;
+  mapButtonLabel: string;
   align: "left" | "right";
 }) {
   return (
@@ -210,8 +227,13 @@ function EventMomentCard({
             <span>{event.time}</span>
           </div>
           <div className="flex items-start gap-3">
-            <MapPinCheck className="mt-0.5 h-4 w-4 text-sage" strokeWidth={1.3} />
-            <span>{event.calendarDetails}</span>
+            <MapPinCheck className="mt-0.5 h-4 w-4 shrink-0 text-sage" strokeWidth={1.3} />
+            <div className="flex flex-col">
+              <span className="font-medium text-foreground">{event.locationName}</span>
+              <span className="mt-1 text-xs leading-snug text-muted-foreground">
+                {event.address}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -219,14 +241,24 @@ function EventMomentCard({
           {event.note}
         </p>
 
-        <a
-          href={buildCalUrl(event)}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-7 inline-flex border border-sage px-5 py-3 text-[0.62rem] uppercase tracking-luxury text-sage-deep transition-colors hover:bg-sage hover:text-primary-foreground"
-        >
-          {saveLabel}
-        </a>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <a
+            href={buildCalUrl(event)}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex flex-1 items-center justify-center border border-sage px-5 py-3 text-center text-[0.62rem] uppercase tracking-luxury text-sage-deep transition-colors hover:bg-sage hover:text-primary-foreground"
+          >
+            {saveLabel}
+          </a>
+          <a
+            href={event.mapUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex flex-1 items-center justify-center border border-sage bg-sage px-5 py-3 text-center text-[0.62rem] uppercase tracking-luxury text-primary-foreground transition-colors hover:bg-sage-deep"
+          >
+            {mapButtonLabel}
+          </a>
+        </div>
       </div>
     </motion.article>
   );
